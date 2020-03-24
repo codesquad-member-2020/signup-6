@@ -23,11 +23,13 @@ repositories {
 }
 
 dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jdbc', version: '2.2.5.RELEASE'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
     implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
     compile 'com.h2database:h2:1.4.200'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jdbc', version: '2.2.5.RELEASE'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
