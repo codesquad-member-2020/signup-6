@@ -9,33 +9,43 @@
 import Foundation
 
 class InputVerifier {
+    enum EssentialElement: String {
+        case upperCase = "영문 대문자"
+        case lowerCase = "영문 소문자"
+        case number = "숫자"
+        case specialCharacter = "특수문자"
+    }
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
-    
+    private let upperCase = "[A-Z]"
+    private let lowerCase = "[a-z]"
+    private let number = "[0-9]"
+    private let specialCharacter = "[!@#$%^*+=~&_;:-]"
+
     func verifyIdInput(id: String) -> Bool {
-        let regExr = try! NSRegularExpression(pattern: idRegExr, options: .anchorsMatchLines)
-        let result = regExr.matches(in: id, options: [], range: NSRange(location: 0, length: id.count))
-        return !result.isEmpty
+        return !match(regExr: idRegExr, with: id).isEmpty
     }
     
-    func verifyPasswordInput(password: String) -> (Bool, [String]) {
-        var notIncludedElements = [String]()
+    func verifyPasswordInput(password: String) -> (Bool, [EssentialElement]) {
+        var notIncludedElements = [EssentialElement]()
         guard password.count >= 8, password.count <= 16 else { return (false, notIncludedElements) }
-        var regExr = try! NSRegularExpression(pattern: "[A-Z]", options: .anchorsMatchLines)
-        if regExr.matches(in: password, options: [], range: NSRange(location: 0, length: password.count)).count == 0 {
-            notIncludedElements.append("영문 대문자")
+        if match(regExr: upperCase, with: password).isEmpty {
+            notIncludedElements.append(.upperCase)
         }
-        regExr = try! NSRegularExpression(pattern: "[a-z]", options: .anchorsMatchLines)
-        if regExr.matches(in: password, options: [], range: NSRange(location: 0, length: password.count)).count == 0 {
-            notIncludedElements.append("영문 소문자")
+        if match(regExr: lowerCase, with: password).isEmpty {
+            notIncludedElements.append(.lowerCase)
         }
-        regExr = try! NSRegularExpression(pattern: "[0-9]", options: .anchorsMatchLines)
-        if regExr.matches(in: password, options: [], range: NSRange(location: 0, length: password.count)).count == 0 {
-            notIncludedElements.append("숫자")
+        if match(regExr: number, with: password).isEmpty {
+            notIncludedElements.append(.number)
         }
-        regExr = try! NSRegularExpression(pattern: "[!@#$$%^*+=-]", options: .anchorsMatchLines)
-        if regExr.matches(in: password, options: [], range: NSRange(location: 0, length: password.count)).count == 0 {
-            notIncludedElements.append("특수문자")
+        if match(regExr: specialCharacter, with: password).isEmpty {
+            notIncludedElements.append(.specialCharacter)
         }
         return (notIncludedElements.isEmpty, notIncludedElements)
+    }
+    
+    func match(regExr: String, with string: String) -> [NSTextCheckingResult] {
+        let regularExpression = try! NSRegularExpression(pattern: regExr, options: .anchorsMatchLines)
+        let result = regularExpression.matches(in: string, options: [], range: NSRange(location: 0, length: string.count))
+        return result
     }
 }
