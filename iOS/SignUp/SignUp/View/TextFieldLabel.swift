@@ -10,6 +10,10 @@ import UIKit
 
 class TextFieldLabel: UILabel {
     private var textSize: CGFloat = 15.0
+    private var topInset: CGFloat = 0.0
+    private var bottomInset: CGFloat = 10.0
+    private var leftInset: CGFloat = 0.0
+    private var rightInset: CGFloat = 0.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +23,11 @@ class TextFieldLabel: UILabel {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setProperties()
+    }
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
     }
     
     private func setProperties() {
