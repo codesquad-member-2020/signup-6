@@ -14,9 +14,9 @@ public class MainController {
 
     @GetMapping("/")
     public String main() {
-        User user = new User(2L, "QWE", "POOE");
+        User user = new User("POOGLE", "QWE");
         userRepository.save(user);
-        System.out.println(user.toString());
+        System.out.println(userRepository.findUserById(1L));
         return "redirect:/users";
     }
 }
