@@ -109,5 +109,7 @@ tmp/
 temp/
 
 package-lock.json
+/src/static
+/src/server.js
 
 # End of https://www.gitignore.io/api/node
