@@ -28,7 +28,11 @@ class SignUpView: UIView {
         }
     }
     @IBOutlet weak var passwordStatusLabel: StatusMessageLabel!
-    @IBOutlet weak var passwordConfirmTextField: InputTextField!
+    @IBOutlet weak var passwordConfirmTextField: InputTextField! {
+        didSet {
+            passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
+        }
+    }
     @IBOutlet weak var passwordConfirmStatusLabel: StatusMessageLabel!
     @IBOutlet weak var nameTextField: InputTextField!
     @IBOutlet weak var nameStatusLabel: StatusMessageLabel!
@@ -41,6 +45,14 @@ class SignUpView: UIView {
     @objc func passwordTextFieldEditingEnd(_ textField: InputTextField) {
         guard let changes = textField.text else { return }
         delegate?.passwordTextFieldEditingEnd(changes: changes)
+    }
+    
+    @objc func confirmPassword(_ textField: InputTextField) {
+        if passwordTextField.text == textField.text {
+            passwordMatch()
+        } else {
+            passwordMismatch()
+        }
     }
     
     func idValid() {
@@ -73,5 +85,19 @@ class SignUpView: UIView {
         }
         passwordStatusLabel.textColor = .red
         passwordTextField.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    func passwordMatch() {
+        passwordConfirmStatusLabel.alpha = 1
+        passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
+        passwordConfirmStatusLabel.textColor = .systemGreen
+        passwordConfirmTextField.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func passwordMismatch() {
+        passwordConfirmStatusLabel.alpha = 1
+        passwordConfirmStatusLabel.text = "비밀번호가 일치하지 않습니다."
+        passwordConfirmStatusLabel.textColor = .red
+        passwordConfirmTextField.layer.borderColor = UIColor.red.cgColor
     }
 }
