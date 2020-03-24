@@ -17,6 +17,8 @@ class InputVerifier {
     }
     static let idValid = NSNotification.Name("idValid")
     static let idInvalid = NSNotification.Name("idInvalid")
+    static let passwordValid = NSNotification.Name("passwordValid")
+    static let passwordInvalid = NSNotification.Name("passwordInvalid")
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     private let upperCase = "[A-Z]"
     private let lowerCase = "[a-z]"
@@ -31,9 +33,12 @@ class InputVerifier {
         }
     }
     
-    func verifyPasswordInput(password: String) -> (Bool, [EssentialElement]) {
+    func verifyPasswordInput(password: String) {
         var notIncludedElements = [EssentialElement]()
-        guard password.count >= 8, password.count <= 16 else { return (false, notIncludedElements) }
+        guard password.count >= 8, password.count <= 16 else {
+            NotificationCenter.default.post(name: InputVerifier.passwordInvalid, object: nil, userInfo: [InputVerifier.passwordInvalid:""])
+            return
+        }
         if match(regExr: upperCase, with: password).isEmpty {
             notIncludedElements.append(.upperCase)
         }
@@ -46,7 +51,12 @@ class InputVerifier {
         if match(regExr: specialCharacter, with: password).isEmpty {
             notIncludedElements.append(.specialCharacter)
         }
-        return (notIncludedElements.isEmpty, notIncludedElements)
+        if notIncludedElements.isEmpty {
+            NotificationCenter.default.post(name: InputVerifier.passwordValid, object: nil)
+        } else {
+            let result = notIncludedElements.map { $0.rawValue }.joined(separator: ", ")
+            NotificationCenter.default.post(name: InputVerifier.passwordInvalid, object: nil, userInfo: [InputVerifier.passwordInvalid:result])
+        }
     }
     
     private func match(regExr: String, with string: String) -> [NSTextCheckingResult] {

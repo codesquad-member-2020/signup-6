@@ -10,6 +10,7 @@ import UIKit
 
 protocol SignUpViewDelegate: class {
     func idTextFieldChanged(changes: String)
+    func passwordTextFieldEditingEnd(changes: String)
 }
 
 class SignUpView: UIView {
@@ -21,7 +22,11 @@ class SignUpView: UIView {
         }
     }
     @IBOutlet weak var idStatusLabel: StatusMessageLabel!
-    @IBOutlet weak var passwordTextField: InputTextField!
+    @IBOutlet weak var passwordTextField: InputTextField! {
+        didSet {
+            passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingEnd(_:)), for: .editingDidEnd)
+        }
+    }
     @IBOutlet weak var passwordStatusLabel: StatusMessageLabel!
     @IBOutlet weak var passwordConfirmTextField: InputTextField!
     @IBOutlet weak var passwordConfirmStatusLabel: StatusMessageLabel!
@@ -31,6 +36,11 @@ class SignUpView: UIView {
     @objc func idTextFieldDidChange(_ textField: InputTextField) {
         guard let changes = textField.text else { return }
         delegate?.idTextFieldChanged(changes: changes)
+    }
+    
+    @objc func passwordTextFieldEditingEnd(_ textField: InputTextField) {
+        guard let changes = textField.text else { return }
+        delegate?.passwordTextFieldEditingEnd(changes: changes)
     }
     
     func idValid() {
@@ -45,5 +55,23 @@ class SignUpView: UIView {
         idStatusLabel.text = "5~20자의 영문 소문자, 숫자, 특수기호 (_)(-) 만 사용가능합니다."
         idStatusLabel.textColor = .red
         idTextField.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    func passwordValid() {
+        passwordStatusLabel.alpha = 1
+        passwordStatusLabel.text = "안전한 비밀번호입니다."
+        passwordStatusLabel.textColor = .systemGreen
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func passwordInvalid(with statusMessage: String) {
+        passwordStatusLabel.alpha = 1
+        if statusMessage == "" {
+            passwordStatusLabel.text = "8자 이상 16자 이하로 입력해주세요."
+        } else {
+            passwordStatusLabel.text = "\(statusMessage)를 최소 1자 이상 포함해주세요."
+        }
+        passwordStatusLabel.textColor = .red
+        passwordTextField.layer.borderColor = UIColor.red.cgColor
     }
 }

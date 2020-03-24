@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         signUpView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(changedIdValid), name: InputVerifier.idValid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changedIdInvalid), name: InputVerifier.idInvalid, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordValid), name: InputVerifier.passwordValid, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordInvalid), name: InputVerifier.passwordInvalid, object: nil)
     }
     
     @objc func changedIdValid() {
@@ -28,10 +30,23 @@ class ViewController: UIViewController {
     @objc func changedIdInvalid() {
         signUpView.idInvalid()
     }
+    
+    @objc func enteredPasswordValid() {
+        signUpView.passwordValid()
+    }
+    
+    @objc func enteredPasswordInvalid(_ notification: Notification) {
+        guard let notIncludedElements = notification.userInfo?[InputVerifier.passwordInvalid] as? String else { return }
+        signUpView.passwordInvalid(with: notIncludedElements)
+    }
 }
 
 extension ViewController: SignUpViewDelegate {
     func idTextFieldChanged(changes: String) {
         inputVerifier.verifyIdInput(id: changes)
+    }
+    
+    func passwordTextFieldEditingEnd(changes: String) {
+        inputVerifier.verifyPasswordInput(password: changes)
     }
 }
