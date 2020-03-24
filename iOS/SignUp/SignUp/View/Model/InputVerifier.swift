@@ -43,7 +43,7 @@ class InputVerifier {
         return (notIncludedElements.isEmpty, notIncludedElements)
     }
     
-    func match(regExr: String, with string: String) -> [NSTextCheckingResult] {
+    private func match(regExr: String, with string: String) -> [NSTextCheckingResult] {
         let regularExpression = try! NSRegularExpression(pattern: regExr, options: .anchorsMatchLines)
         let result = regularExpression.matches(in: string, options: [], range: NSRange(location: 0, length: string.count))
         return result
