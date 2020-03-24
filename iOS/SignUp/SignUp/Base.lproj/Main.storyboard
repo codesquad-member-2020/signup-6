@@ -11,7 +11,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SignUpView" customModule="SignUp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -130,6 +130,16 @@
                             <constraint firstItem="vCU-fe-kUD" firstAttribute="top" secondItem="eOy-6W-7NL" secondAttribute="bottom" constant="30" id="zB6-X0-9g8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="idStatusLabel" destination="i5b-Hq-3ui" id="kkN-Sv-nmW"/>
+                            <outlet property="idTextField" destination="2vI-DZ-OAy" id="EDI-CE-NKQ"/>
+                            <outlet property="nameStatusLabel" destination="t9y-NY-lFH" id="rlA-rb-nuj"/>
+                            <outlet property="nameTextField" destination="oMf-YY-4k7" id="hcw-ih-lhM"/>
+                            <outlet property="passwordConfirmStatusLabel" destination="YMi-3P-KQL" id="1tZ-YW-eO2"/>
+                            <outlet property="passwordConfirmTextField" destination="mQS-Fv-q2T" id="hir-bg-T9u"/>
+                            <outlet property="passwordStatusLabel" destination="6xt-yR-KTZ" id="Q9t-Y8-GQI"/>
+                            <outlet property="passwordTextField" destination="3Ox-Cm-kPF" id="4ym-E6-n3b"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
