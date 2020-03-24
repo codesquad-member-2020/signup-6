@@ -1,0 +1,84 @@
+form .content {
+	margin: 0 auto;
+	width: 460px;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	div {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 30px;
+		label {
+			color: $black;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		.input_box {
+			padding: 10px 15px;
+			border: 1px solid $grey;
+		}
+		input {
+			width: 100%;
+		}
+		select {
+			height: 40px;
+			padding-left: 12px;
+			border: 1px solid $grey;
+		}
+		.message {
+			font-size: 13px;
+			margin-top: 5px;
+			visibility: hidden;
+		}
+	}
+	.birthday_wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		height: 40px;
+		margin: 0;
+		.birthday_yy,
+		.birthday_mm,
+		.birthday_dd {
+			width: 150px;
+			margin: 0;
+		}
+	}
+	.terms {
+		flex-direction: row;
+		height: 50px;
+		margin: 0;
+		font-weight: bold;
+		font-size: 13px;
+		span {
+			color: $black;
+			font-weight: bold;
+			text-decoration: underline;
+			height: fit-content;
+			cursor: pointer;
+			&:hover {
+				color: $purple;
+			}
+		}
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			width: fit-content;
+			margin-left: 10px;
+		}
+	}
+	.btn-area {
+		flex-direction: row;
+		justify-content: space-between;
+		height: 60px;
+		input {
+			width: 48%;
+			cursor: pointer;
+			font-size: 14px;
+			letter-spacing: 0.2em;
+			&:hover {
+				color: $white;
+				font-weight: bold;
+				background: $purple;
+			}
+		}
+	}
+}
