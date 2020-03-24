@@ -35,7 +35,10 @@
 * Github flow 사용
 
 ## WEB API
-
+* Postman
+  * Mockup Server
+  * JSON Data 형식 정의
+  * [링크](https://documenter.getpostman.com/view/10808333/SzYT4gLt?version=latest)
 
 ## 일일회고
 * 슬랙 정리
