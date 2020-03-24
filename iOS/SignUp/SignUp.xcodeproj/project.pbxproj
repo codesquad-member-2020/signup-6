@@ -17,6 +17,7 @@
 		443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A72429B058004F2722 /* TextFieldLabel.swift */; };
 		443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A92429B356004F2722 /* StatusMessageLabel.swift */; };
 		443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD2429CE89004F2722 /* InputTextField.swift */; };
+		443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AF2429D6D1004F2722 /* NextButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		443DD5A72429B058004F2722 /* TextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLabel.swift; sourceTree = "<group>"; };
 		443DD5A92429B356004F2722 /* StatusMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMessageLabel.swift; sourceTree = "<group>"; };
 		443DD5AD2429CE89004F2722 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		443DD5AF2429D6D1004F2722 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				443DD5A72429B058004F2722 /* TextFieldLabel.swift */,
 				443DD5A92429B356004F2722 /* StatusMessageLabel.swift */,
 				443DD5AD2429CE89004F2722 /* InputTextField.swift */,
+				443DD5AF2429D6D1004F2722 /* NextButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
 				443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */,
+				443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */,
 				443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

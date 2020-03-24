@@ -114,7 +114,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCU-fe-kUD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCU-fe-kUD" customClass="NextButton" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="184" y="489.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
