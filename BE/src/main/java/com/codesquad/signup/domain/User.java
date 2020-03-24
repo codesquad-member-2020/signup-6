@@ -1,9 +1,5 @@
 package com.codesquad.signup.domain;
 
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotEmpty;
@@ -19,13 +15,20 @@ public class User {
     @NotEmpty
     private String password;
 
-    public User(String userId, String password) {
-        this.userId = userId;
-        this.password = password;
-    }
+    @NotEmpty
+    private String name;
 
-    public User() {
-    }
+    @NotEmpty
+    private String birthDay;
+
+    @NotEmpty
+    private String gender;
+
+    @NotEmpty
+    private String email;
+
+    @NotEmpty
+    private String mobile;
 
     public Long getId() {
         return id;
@@ -35,7 +38,7 @@ public class User {
         this.id = id;
     }
 
-    public String getUserId() {
+    public java.lang.String getUserId() {
         return userId;
     }
 
@@ -51,28 +54,28 @@ public class User {
         this.password = password;
     }
 
+    public User(@NotEmpty String userId
+            , @NotEmpty String password
+            , @NotEmpty String name
+            , @NotEmpty String birthDay
+            , @NotEmpty String gender
+            , @NotEmpty String email
+            , @NotEmpty String mobile) {
+        this.userId = userId;
+        this.password = password;
+        this.name = name;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.email = email;
+        this.mobile = mobile;
+    }
+
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "User{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
-
-    //
-//    @NotEmpty
-//    private String name;
-//
-//    @NotEmpty
-//    private String birthDay;
-//
-//    @NotEmpty
-//    private Gender gender;
-//
-//    @NotEmpty
-//    private String email;
-//
-//    @NotEmpty
-//    private String mobile;
 }

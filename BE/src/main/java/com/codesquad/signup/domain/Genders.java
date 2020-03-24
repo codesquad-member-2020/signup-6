@@ -1,6 +1,6 @@
 package com.codesquad.signup.domain;
 
-enum Genders {
+public enum Genders {
     MALE("남자"),
     FEMALE("여자");
 
