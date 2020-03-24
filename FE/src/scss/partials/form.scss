@@ -55,9 +55,7 @@ form .content {
 			text-decoration: underline;
 			height: fit-content;
 			cursor: pointer;
-			&:hover {
-				color: $purple;
-			}
+			color: $purple;
 		}
 		input[type="checkbox"] {
 			transform: scale(1.5);
@@ -74,11 +72,9 @@ form .content {
 			cursor: pointer;
 			font-size: 14px;
 			letter-spacing: 0.2em;
-			&:hover {
-				color: $white;
-				font-weight: bold;
-				background: $purple;
-			}
+			color: $white;
+			font-weight: bold;
+			background: $purple;
 		}
 	}
 }
