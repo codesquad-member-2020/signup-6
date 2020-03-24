@@ -21,4 +21,21 @@ class InputVerifierTests: XCTestCase {
         XCTAssertFalse(verifier.verifyIdInput(id: "abcde.fg"))
         XCTAssertTrue(verifier.verifyIdInput(id: "a_b_c_d-e1234"))
     }
+    
+    func testPasswordVerify() {
+        // 8글자 미만
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "Db1004@").0)
+        // 16글자 초과
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "Db1004@1234567890").0)
+        // 대문자 없음
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "db1004@@").0)
+        // 소문자 없음
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "DB1004@@").0)
+        // 숫자 없음
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "Dbangelcodesquad").0)
+        // 특수문자 없음
+        XCTAssertFalse(verifier.verifyPasswordInput(password: "Db1004codesquad").0)
+        // 모든 조건 만족
+        XCTAssertTrue(verifier.verifyPasswordInput(password: "Db1004@@@squid").0)
+    }
 }
