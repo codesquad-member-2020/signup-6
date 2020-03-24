@@ -18,7 +18,19 @@
 		443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A92429B356004F2722 /* StatusMessageLabel.swift */; };
 		443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD2429CE89004F2722 /* InputTextField.swift */; };
 		443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AF2429D6D1004F2722 /* NextButton.swift */; };
+		4473D9792429FB0600073E28 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9782429FB0600073E28 /* InputVerifier.swift */; };
+		4473D9812429FCF000073E28 /* InputVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9802429FCF000073E28 /* InputVerifierTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4473D9832429FCF000073E28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 443DD585242999E0004F2722 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 443DD58C242999E0004F2722;
+			remoteInfo = SignUp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		443DD58D242999E0004F2722 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,10 +46,21 @@
 		443DD5A92429B356004F2722 /* StatusMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMessageLabel.swift; sourceTree = "<group>"; };
 		443DD5AD2429CE89004F2722 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		443DD5AF2429D6D1004F2722 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		4473D9782429FB0600073E28 /* InputVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifier.swift; sourceTree = "<group>"; };
+		4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputVerifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4473D9802429FCF000073E28 /* InputVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifierTests.swift; sourceTree = "<group>"; };
+		4473D9822429FCF000073E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		443DD58A242999E0004F2722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4473D97B2429FCF000073E28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				443DD58F242999E0004F2722 /* SignUp */,
+				4473D97F2429FCF000073E28 /* InputVerifierTests */,
 				443DD58E242999E0004F2722 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				443DD58D242999E0004F2722 /* SignUp.app */,
+				4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +91,7 @@
 		443DD58F242999E0004F2722 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				4473D9772429FABE00073E28 /* Model */,
 				443DD590242999E0004F2722 /* AppDelegate.swift */,
 				443DD592242999E0004F2722 /* SceneDelegate.swift */,
 				443DD594242999E0004F2722 /* ViewController.swift */,
@@ -90,6 +116,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4473D9772429FABE00073E28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4473D9782429FB0600073E28 /* InputVerifier.swift */,
+			);
+			name = Model;
+			path = View/Model;
+			sourceTree = "<group>";
+		};
+		4473D97F2429FCF000073E28 /* InputVerifierTests */ = {
+			isa = PBXGroup;
+			children = (
+				4473D9802429FCF000073E28 /* InputVerifierTests.swift */,
+				4473D9822429FCF000073E28 /* Info.plist */,
+			);
+			path = InputVerifierTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +154,24 @@
 			productReference = 443DD58D242999E0004F2722 /* SignUp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4473D97D2429FCF000073E28 /* InputVerifierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4473D9852429FCF000073E28 /* Build configuration list for PBXNativeTarget "InputVerifierTests" */;
+			buildPhases = (
+				4473D97A2429FCF000073E28 /* Sources */,
+				4473D97B2429FCF000073E28 /* Frameworks */,
+				4473D97C2429FCF000073E28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4473D9842429FCF000073E28 /* PBXTargetDependency */,
+			);
+			name = InputVerifierTests;
+			productName = InputVerifierTests;
+			productReference = 4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -122,6 +184,10 @@
 				TargetAttributes = {
 					443DD58C242999E0004F2722 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					4473D97D2429FCF000073E28 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 443DD58C242999E0004F2722;
 					};
 				};
 			};
@@ -139,6 +205,7 @@
 			projectRoot = "";
 			targets = (
 				443DD58C242999E0004F2722 /* SignUp */,
+				4473D97D2429FCF000073E28 /* InputVerifierTests */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +221,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4473D97C2429FCF000073E28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -164,6 +238,7 @@
 				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
 				443DD595242999E0004F2722 /* ViewController.swift in Sources */,
 				443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */,
+				4473D9792429FB0600073E28 /* InputVerifier.swift in Sources */,
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
 				443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */,
@@ -172,7 +247,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4473D97A2429FCF000073E28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4473D9812429FCF000073E28 /* InputVerifierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4473D9842429FCF000073E28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 443DD58C242999E0004F2722 /* SignUp */;
+			targetProxy = 4473D9832429FCF000073E28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		443DD596242999E0004F2722 /* Main.storyboard */ = {
@@ -344,6 +435,46 @@
 			};
 			name = Release;
 		};
+		4473D9862429FCF000073E28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52LA5XMGV3;
+				INFOPLIST_FILE = InputVerifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttozzi.InputVerifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SignUp.app/SignUp";
+			};
+			name = Debug;
+		};
+		4473D9872429FCF000073E28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52LA5XMGV3;
+				INFOPLIST_FILE = InputVerifierTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttozzi.InputVerifierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SignUp.app/SignUp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -361,6 +492,15 @@
 			buildConfigurations = (
 				443DD5A2242999E0004F2722 /* Debug */,
 				443DD5A3242999E0004F2722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4473D9852429FCF000073E28 /* Build configuration list for PBXNativeTarget "InputVerifierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4473D9862429FCF000073E28 /* Debug */,
+				4473D9872429FCF000073E28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
