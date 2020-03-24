@@ -8,8 +8,18 @@
 
 import UIKit
 
+protocol SignUpViewDelegate: class {
+    func idTextFieldChanged(changes: String)
+}
+
 class SignUpView: UIView {
-    @IBOutlet weak var idTextField: InputTextField!
+    weak var delegate: SignUpViewDelegate?
+    
+    @IBOutlet weak var idTextField: InputTextField! {
+        didSet {
+            idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
+        }
+    }
     @IBOutlet weak var idStatusLabel: StatusMessageLabel!
     @IBOutlet weak var passwordTextField: InputTextField!
     @IBOutlet weak var passwordStatusLabel: StatusMessageLabel!
@@ -17,4 +27,9 @@ class SignUpView: UIView {
     @IBOutlet weak var passwordConfirmStatusLabel: StatusMessageLabel!
     @IBOutlet weak var nameTextField: InputTextField!
     @IBOutlet weak var nameStatusLabel: StatusMessageLabel!
+    
+    @objc func idTextFieldDidChange(_ textField: InputTextField) {
+        guard let changes = textField.text else { return }
+        delegate?.idTextFieldChanged(changes: changes)
+    }
 }

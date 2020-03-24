@@ -9,8 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private var signUpView: SignUpView {
+        self.view as! SignUpView
+    }
+    private let inputVerifier = InputVerifier()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUpView.delegate = self
     }
 }
 
+extension ViewController: SignUpViewDelegate {
+    func idTextFieldChanged(changes: String) {
+        print(inputVerifier.verifyIdInput(id: changes))
+    }
+}
