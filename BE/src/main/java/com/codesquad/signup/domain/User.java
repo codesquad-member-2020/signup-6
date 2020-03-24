@@ -44,7 +44,7 @@ public class User {
 //    private String birthDay;
 //
 //    @NotEmpty
-//    private String sex;
+//    private Gender gender;
 //
 //    @NotEmpty
 //    private String email;

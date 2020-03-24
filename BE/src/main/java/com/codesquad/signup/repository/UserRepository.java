@@ -10,7 +10,4 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Query("SELECT * FROM USER WHERE ID")
     Optional<User> findById(Long id);
-
-    //@Query("INSERT INTO USER VALUES (ID=:id, USERID=:userId, PASSWORD=:password)")
-    //User save(Long id, String userId, String password);
 }
