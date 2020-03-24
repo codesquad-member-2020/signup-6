@@ -15,14 +15,20 @@ class InputVerifier {
         case number = "숫자"
         case specialCharacter = "특수문자"
     }
+    static let idValid = NSNotification.Name("idValid")
+    static let idInvalid = NSNotification.Name("idInvalid")
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     private let upperCase = "[A-Z]"
     private let lowerCase = "[a-z]"
     private let number = "[0-9]"
     private let specialCharacter = "[!@#$%^*+=~&_;:-]"
 
-    func verifyIdInput(id: String) -> Bool {
-        return !match(regExr: idRegExr, with: id).isEmpty
+    func verifyIdInput(id: String) {
+        if !match(regExr: idRegExr, with: id).isEmpty {
+            NotificationCenter.default.post(name: InputVerifier.idValid, object: nil)
+        } else {
+            NotificationCenter.default.post(name: InputVerifier.idInvalid, object: nil)
+        }
     }
     
     func verifyPasswordInput(password: String) -> (Bool, [EssentialElement]) {

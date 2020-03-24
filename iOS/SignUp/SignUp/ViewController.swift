@@ -17,11 +17,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(changedIdValid), name: InputVerifier.idValid, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changedIdInvalid), name: InputVerifier.idInvalid, object: nil)
+    }
+    
+    @objc func changedIdValid() {
+        signUpView.idValid()
+    }
+    
+    @objc func changedIdInvalid() {
+        signUpView.idInvalid()
     }
 }
 
 extension ViewController: SignUpViewDelegate {
     func idTextFieldChanged(changes: String) {
-        print(inputVerifier.verifyIdInput(id: changes))
+        inputVerifier.verifyIdInput(id: changes)
     }
 }

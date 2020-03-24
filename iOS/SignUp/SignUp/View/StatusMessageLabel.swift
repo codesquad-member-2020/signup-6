@@ -23,5 +23,6 @@ class StatusMessageLabel: UILabel {
     
     private func setProperties() {
         self.font = .systemFont(ofSize: textSize)
+        self.alpha = 0
     }
 }
