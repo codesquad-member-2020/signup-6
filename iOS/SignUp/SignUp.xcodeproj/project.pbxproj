@@ -15,6 +15,7 @@
 		443DD59D242999E0004F2722 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443DD59B242999E0004F2722 /* LaunchScreen.storyboard */; };
 		443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A42429AD2E004F2722 /* TitleLabel.swift */; };
 		443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A72429B058004F2722 /* TextFieldLabel.swift */; };
+		443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A92429B356004F2722 /* StatusMessageLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		443DD59E242999E0004F2722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443DD5A42429AD2E004F2722 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		443DD5A72429B058004F2722 /* TextFieldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLabel.swift; sourceTree = "<group>"; };
+		443DD5A92429B356004F2722 /* StatusMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMessageLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				443DD5A42429AD2E004F2722 /* TitleLabel.swift */,
 				443DD5A72429B058004F2722 /* TextFieldLabel.swift */,
+				443DD5A92429B356004F2722 /* StatusMessageLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
 				443DD595242999E0004F2722 /* ViewController.swift in Sources */,
 				443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */,
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
