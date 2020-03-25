@@ -14,13 +14,13 @@ public class MainController {
     UserRepository userRepository;
 
     @GetMapping("/")
-    public java.lang.String main() 1{
+    public java.lang.String main() {
         User user = new User("POOGLE", "QWE", "LEE", "2020-02-01", Genders.FEMALE.getGender(), "ER@GMAIL.COM", "010-3333-4444");
         userRepository.save(user);
         System.out.println(userRepository.findById(user.getId()));
-        System.out.println(userRepository.existsByUserId("POOGLE"));
-        System.out.println(userRepository.existsByUserId("HONUX"));
-        System.out.println(userRepository.existsByEmail("ASD@GMAIL.COM"));
+        System.out.println(userRepository.findByUserId("POOGLE").isPresent());
+        System.out.println(userRepository.findByUserId("HONUX").isPresent());
+        System.out.println(userRepository.findByEmail("ASD@GMAIL.COM"));
         return "redirect:/users";
     }
 }
