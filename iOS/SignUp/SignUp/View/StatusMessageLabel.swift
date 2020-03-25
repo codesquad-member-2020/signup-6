@@ -25,4 +25,14 @@ class StatusMessageLabel: UILabel {
         self.font = .systemFont(ofSize: textSize)
         self.alpha = 0
     }
+    
+    func valid() {
+        self.alpha = 1
+        self.textColor = .systemGreen
+    }
+    
+    func invalid() {
+        self.alpha = 1
+        self.textColor = .systemRed
+    }
 }
