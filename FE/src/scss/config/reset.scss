@@ -132,7 +132,8 @@ input {
 	box-sizing: border-box;
 }
 
-input {
+input,
+select {
 	border: none;
 	box-sizing: border-box;
 	&:focus,
