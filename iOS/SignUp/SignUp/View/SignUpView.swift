@@ -24,6 +24,7 @@ class SignUpView: UIView {
     @IBOutlet weak var passwordConfirmStatusLabel: StatusMessageLabel!
     @IBOutlet weak var nameTextField: InputTextField!
     @IBOutlet weak var nameStatusLabel: StatusMessageLabel!
+    @IBOutlet weak var nextButton: NextButton!
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)

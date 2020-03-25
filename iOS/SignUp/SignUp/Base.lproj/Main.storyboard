@@ -135,6 +135,7 @@
                             <outlet property="idTextField" destination="2vI-DZ-OAy" id="EDI-CE-NKQ"/>
                             <outlet property="nameStatusLabel" destination="t9y-NY-lFH" id="rlA-rb-nuj"/>
                             <outlet property="nameTextField" destination="oMf-YY-4k7" id="hcw-ih-lhM"/>
+                            <outlet property="nextButton" destination="vCU-fe-kUD" id="fAi-XF-3WQ"/>
                             <outlet property="passwordConfirmStatusLabel" destination="YMi-3P-KQL" id="1tZ-YW-eO2"/>
                             <outlet property="passwordConfirmTextField" destination="mQS-Fv-q2T" id="hir-bg-T9u"/>
                             <outlet property="passwordStatusLabel" destination="6xt-yR-KTZ" id="Q9t-Y8-GQI"/>
