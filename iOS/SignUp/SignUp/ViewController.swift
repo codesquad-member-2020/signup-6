@@ -31,11 +31,19 @@ class ViewController: UIViewController {
             }
         }
         signUpView.passwordTextField.bind { self.passwordViewModel.password.value = $0 }
+        signUpView.passwordConfirmTextField.bind { self.passwordViewModel.passwordConfirm.value = $0 }
         passwordViewModel.passwordDidChanged = { result, status in
             if result {
                 self.signUpView.passwordValid()
             } else {
                 self.signUpView.passwordInvalid(with: status!)
+            }
+        }
+        passwordViewModel.passwordConfirmDidChanged = { result in
+            if result {
+                self.signUpView.passwordMatch()
+            } else {
+                self.signUpView.passwordMismatch()
             }
         }
     }

@@ -19,12 +19,19 @@ class PasswordViewModel {
     private let lowerCase = "[a-z]"
     private let number = "[0-9]"
     private let specialCharacter = "[!@#$%^*+=~&_;:-]"
+    private var statusMessage: String?
     var password = Dynamic<String>("")
+    var passwordConfirm = Dynamic<String>("")
     var passwordDidChanged: ((Bool, String?) -> Void) = { _, _ in }
-    var statusMessage: String?
+    var passwordConfirmDidChanged: (Bool) -> Void = { _ in }
     var isPasswordValid = false {
         didSet {
             passwordDidChanged(isPasswordValid, statusMessage)
+        }
+    }
+    var isPasswordConfirmed = false {
+        didSet {
+            passwordConfirmDidChanged(isPasswordConfirmed)
         }
     }
     
@@ -32,6 +39,14 @@ class PasswordViewModel {
         password.bind = { text in
             self.isPasswordValid = self.verifyPasswordInput(password: text) { (status) in
                 self.statusMessage = status
+            }
+            if self.passwordConfirm.value!.count != 0 {
+                self.isPasswordConfirmed = self.passwordConfirm.value == text
+            }
+        }
+        passwordConfirm.bind = { text in
+            if self.passwordConfirm.value!.count != 0 {
+                self.isPasswordConfirmed = self.password.value == text
             }
         }
     }

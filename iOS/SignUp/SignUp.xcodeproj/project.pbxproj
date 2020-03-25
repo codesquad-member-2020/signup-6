@@ -100,9 +100,9 @@
 		443DD58F242999E0004F2722 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				44A51C8B242B3320005C35BC /* SignUp.entitlements */,
 				44846C8B242BA9FC00521C8D /* Extension */,
 				44846C86242B9EEF00521C8D /* ViewModel */,
-				44A51C8B242B3320005C35BC /* SignUp.entitlements */,
 				44F5CA5B242A2D80003DC815 /* Model */,
 				443DD590242999E0004F2722 /* AppDelegate.swift */,
 				443DD592242999E0004F2722 /* SceneDelegate.swift */,

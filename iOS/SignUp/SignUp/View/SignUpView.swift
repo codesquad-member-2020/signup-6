@@ -21,16 +21,7 @@ class SignUpView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
         nameTextField.addTarget(self, action: #selector(nameDidEntered), for: .editingDidEnd)
-    }
-        
-    @objc private func confirmPassword(_ textField: InputTextField) {
-        if passwordTextField.text == textField.text {
-            passwordMatch()
-        } else {
-            passwordMismatch()
-        }
     }
     
     @objc private func nameDidEntered() {
@@ -77,16 +68,14 @@ class SignUpView: UIView {
         checkCondition()
     }
     
-    private func passwordMatch() {
-        if passwordConfirmTextField.text?.count != 0 {
-            passwordConfirmStatusLabel.isValid = true
-            passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
-        }
+    func passwordMatch() {
+        passwordConfirmStatusLabel.isValid = true
+        passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
         passwordConfirmTextField.layer.borderColor = UIColor.black.cgColor
         checkCondition()
     }
     
-    private func passwordMismatch() {
+    func passwordMismatch() {
         passwordConfirmStatusLabel.isValid = false
         passwordConfirmStatusLabel.text = "비밀번호가 일치하지 않습니다."
         passwordConfirmTextField.layer.borderColor = UIColor.red.cgColor
