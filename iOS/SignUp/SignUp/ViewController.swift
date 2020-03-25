@@ -30,6 +30,7 @@ class ViewController: UIViewController {
             } else {
                 self.signUpView.idInvalid()
             }
+            self.checkCondition()
         }
         signUpView.passwordTextField.bind { self.passwordViewModel.password.value = $0 }
         signUpView.passwordConfirmTextField.bind { self.passwordViewModel.passwordConfirm.value = $0 }
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
             } else {
                 self.signUpView.passwordInvalid(with: status!)
             }
+            self.checkCondition()
         }
         passwordViewModel.passwordConfirmDidChanged = { result in
             if result {
@@ -46,6 +48,7 @@ class ViewController: UIViewController {
             } else {
                 self.signUpView.passwordMismatch()
             }
+            self.checkCondition()
         }
         signUpView.nameTextField.bind { self.nameViewModel.name.value = $0 }
         nameViewModel.nameDidChanged = { result in
@@ -54,7 +57,20 @@ class ViewController: UIViewController {
             } else {
                 self.signUpView.nameNotEntered()
             }
+            self.checkCondition()
         }
+    }
+    
+    private func checkCondition() {
+        signUpView.disableNextButton()
+        guard idViewModel.isIdValid else { return }
+        guard passwordViewModel.isPasswordValid else { return }
+        guard passwordViewModel.isPasswordConfirmed else { return }
+        guard nameViewModel.isNameValid else {
+            self.signUpView.nameNotEntered()
+            return
+        }
+        signUpView.enableNextButton()
     }
 }
 

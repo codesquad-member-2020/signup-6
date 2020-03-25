@@ -12,7 +12,7 @@ class IdViewModel {
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     var id = Dynamic<String>.init("")
     var idDidChanged: ((Bool) -> Void) = { _ in }
-    private var isIdValid = false {
+    var isIdValid = false {
         didSet {
             idDidChanged(isIdValid)
         }
