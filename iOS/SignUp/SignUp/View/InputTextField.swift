@@ -23,6 +23,7 @@ class InputTextField: UITextField {
 
     private func setProperties() {
         self.layer.borderWidth = borderWidth
+        self.autocorrectionType = .no
         disableAutoFill()
     }
     

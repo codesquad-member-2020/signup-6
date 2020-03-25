@@ -49,6 +49,17 @@ extension ViewController: UITextFieldDelegate {
             textField.layer.borderColor = UIColor.black.cgColor
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        let nextResponder = signUpView.viewWithTag(nextTag) as UIResponder?
+        if nextResponder != nil {
+            nextResponder?.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }
 
 extension ViewController {
