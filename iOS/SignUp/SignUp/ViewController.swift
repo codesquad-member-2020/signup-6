@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         signUpView.delegate = self
         addObservers()
+        setTextFieldDelegate()
     }
 }
 
@@ -28,6 +29,25 @@ extension ViewController: SignUpViewDelegate {
     
     func passwordTextFieldEditingEnd(changes: String) {
         inputVerifier.verifyPasswordInput(password: changes)
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func setTextFieldDelegate() {
+        signUpView.idTextField.delegate = self
+        signUpView.passwordTextField.delegate = self
+        signUpView.passwordConfirmTextField.delegate = self
+        signUpView.nameTextField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.blue.cgColor
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.layer.borderColor == UIColor.blue.cgColor {
+            textField.layer.borderColor = UIColor.black.cgColor
+        }
     }
 }
 

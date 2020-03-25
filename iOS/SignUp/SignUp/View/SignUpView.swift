@@ -49,7 +49,7 @@ class SignUpView: UIView {
             passwordMismatch()
         }
     }
-        
+    
     func idValid() {
         idStatusLabel.valid()
         idStatusLabel.text = "사용가능한 아이디입니다."
@@ -65,7 +65,6 @@ class SignUpView: UIView {
     func passwordValid() {
         passwordStatusLabel.valid()
         passwordStatusLabel.text = "안전한 비밀번호입니다."
-        passwordTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func passwordInvalid(with statusMessage: String) {
@@ -81,7 +80,6 @@ class SignUpView: UIView {
     func passwordMatch() {
         passwordConfirmStatusLabel.valid()
         passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
-        passwordConfirmTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func passwordMismatch() {
