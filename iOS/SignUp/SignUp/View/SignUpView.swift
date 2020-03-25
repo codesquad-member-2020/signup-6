@@ -16,26 +16,21 @@ protocol SignUpViewDelegate: class {
 class SignUpView: UIView {
     weak var delegate: SignUpViewDelegate?
     
-    @IBOutlet weak var idTextField: InputTextField! {
-        didSet {
-            idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
-        }
-    }
+    @IBOutlet weak var idTextField: InputTextField!
     @IBOutlet weak var idStatusLabel: StatusMessageLabel!
-    @IBOutlet weak var passwordTextField: InputTextField! {
-        didSet {
-            passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingEnd(_:)), for: .editingDidEnd)
-        }
-    }
+    @IBOutlet weak var passwordTextField: InputTextField!
     @IBOutlet weak var passwordStatusLabel: StatusMessageLabel!
-    @IBOutlet weak var passwordConfirmTextField: InputTextField! {
-        didSet {
-            passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
-        }
-    }
+    @IBOutlet weak var passwordConfirmTextField: InputTextField!
     @IBOutlet weak var passwordConfirmStatusLabel: StatusMessageLabel!
     @IBOutlet weak var nameTextField: InputTextField!
     @IBOutlet weak var nameStatusLabel: StatusMessageLabel!
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingEnd(_:)), for: .editingDidEnd)
+        passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
+    }
     
     @objc func idTextFieldDidChange(_ textField: InputTextField) {
         guard let changes = textField.text else { return }
@@ -54,7 +49,7 @@ class SignUpView: UIView {
             passwordMismatch()
         }
     }
-    
+        
     func idValid() {
         idStatusLabel.alpha = 1
         idStatusLabel.text = "사용가능한 아이디입니다."
