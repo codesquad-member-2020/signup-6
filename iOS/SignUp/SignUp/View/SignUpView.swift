@@ -40,6 +40,7 @@ class SignUpView: UIView {
     @objc func passwordTextFieldEditingEnd(_ textField: InputTextField) {
         guard let changes = textField.text else { return }
         delegate?.passwordTextFieldEditingEnd(changes: changes)
+        confirmPassword(passwordConfirmTextField)
     }
     
     @objc func confirmPassword(_ textField: InputTextField) {
@@ -82,6 +83,7 @@ class SignUpView: UIView {
             passwordConfirmStatusLabel.valid()
             passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
         }
+        passwordConfirmTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func passwordMismatch() {
