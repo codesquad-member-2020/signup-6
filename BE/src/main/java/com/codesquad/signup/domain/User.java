@@ -4,12 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.NotEmpty;
+import java.math.BigInteger;
 
 @Table("USERS")
 public class User {
 
     @Id
-    private Long id;
+    private BigInteger id;
 
     @NotEmpty
     private String userId;
@@ -32,11 +33,11 @@ public class User {
     @NotEmpty
     private String mobile;
 
-    public Long getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
