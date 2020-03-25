@@ -2,24 +2,21 @@ package com.codesquad.signup.api;
 
 import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class ApiUserController {
 
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/createForm")
-    public String createForm() {
-        return null;
+    @GetMapping("/form")
+    public String form() {
+        return "index";
     }
 
-    @PostMapping("/create")
+    @PostMapping("")
     public String create() {
         return "redirect:/";
     }

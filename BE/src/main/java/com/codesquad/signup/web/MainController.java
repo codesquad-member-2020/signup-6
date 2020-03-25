@@ -13,14 +13,14 @@ public class MainController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public java.lang.String main() {
-        User user = new User("POOGLE", "QWE", "LEE", "2020-02-01", Genders.FEMALE.getGender(), "ER@GMAIL.COM", "010-3333-4444");
+        User user = new User("POOGLE", "QWE", "LEE", "2020-02-01", Genders.FEMALE.getGender(), "ER@GMAIL.COM", "01033334444");
         userRepository.save(user);
         System.out.println(userRepository.findById(user.getId()));
         System.out.println(userRepository.findByUserId("POOGLE").isPresent());
         System.out.println(userRepository.findByUserId("HONUX").isPresent());
         System.out.println(userRepository.findByEmail("ASD@GMAIL.COM"));
-        return "redirect:/users";
+        return "redirect:/api/users";
     }
 }
