@@ -78,8 +78,10 @@ class SignUpView: UIView {
     }
     
     func passwordMatch() {
-        passwordConfirmStatusLabel.valid()
-        passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
+        if passwordConfirmTextField.text?.count != 0 {
+            passwordConfirmStatusLabel.valid()
+            passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
+        }
     }
     
     func passwordMismatch() {
