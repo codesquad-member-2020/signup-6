@@ -110,10 +110,10 @@ extension ViewController {
     
     private func checkCondition() {
         signUpView.disableNextButton()
-        guard idViewModel.isIdValid else { return }
-        guard passwordViewModel.isPasswordValid else { return }
-        guard passwordViewModel.isPasswordConfirmed else { return }
-        guard nameViewModel.isNameValid else {
+        guard idViewModel.isIdValid.value! else { return }
+        guard passwordViewModel.isPasswordValid.value! else { return }
+        guard passwordViewModel.isPasswordConfirmed.value! else { return }
+        guard nameViewModel.isNameValid.value! else {
             self.signUpView.nameNotEntered()
             return
         }

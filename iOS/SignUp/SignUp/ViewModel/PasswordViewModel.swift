@@ -24,30 +24,28 @@ class PasswordViewModel {
     var passwordConfirm = Dynamic<String>("")
     var passwordDidChanged: ((Bool, String?) -> Void) = { _, _ in }
     var passwordConfirmDidChanged: (Bool) -> Void = { _ in }
-    var isPasswordValid = false {
-        didSet {
-            passwordDidChanged(isPasswordValid, statusMessage)
-        }
-    }
-    var isPasswordConfirmed = false {
-        didSet {
-            passwordConfirmDidChanged(isPasswordConfirmed)
-        }
-    }
+    var isPasswordValid = Dynamic<Bool>(false)
+    var isPasswordConfirmed = Dynamic<Bool>(false)
     
     init() {
         password.bind = { text in
-            self.isPasswordValid = self.verifyPasswordInput(password: text) { (status) in
+            self.isPasswordValid.value = self.verifyPasswordInput(password: text) { (status) in
                 self.statusMessage = status
             }
             if self.passwordConfirm.value!.count != 0 {
-                self.isPasswordConfirmed = self.passwordConfirm.value == text
+                self.isPasswordConfirmed.value = self.passwordConfirm.value == text
             }
+        }
+        isPasswordValid.bind = { result in
+            self.passwordDidChanged(result, self.statusMessage)
         }
         passwordConfirm.bind = { text in
             if self.passwordConfirm.value!.count != 0 {
-                self.isPasswordConfirmed = self.password.value == text
+                self.isPasswordConfirmed.value = self.password.value == text
             }
+        }
+        isPasswordConfirmed.bind = { result in
+            self.passwordConfirmDidChanged(result)
         }
     }
     

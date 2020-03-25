@@ -11,15 +11,14 @@ import Foundation
 class NameViewModel {
     var name = Dynamic<String>("")
     var nameDidChanged: ((Bool) -> Void) = { _ in }
-    var isNameValid = false {
-        didSet {
-            nameDidChanged(isNameValid)
-        }
-    }
+    var isNameValid = Dynamic<Bool>.init(false)
     
     init() {
         name.bind = { text in
-            self.isNameValid = !text.isEmpty
+            self.isNameValid.value = !text.isEmpty
+        }
+        isNameValid.bind = { result in
+            self.nameDidChanged(result)
         }
     }
 }
