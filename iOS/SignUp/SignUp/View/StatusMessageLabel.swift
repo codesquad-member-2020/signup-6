@@ -10,6 +10,11 @@ import UIKit
 
 class StatusMessageLabel: UILabel {
     private var textSize: CGFloat = 12.0
+    var isValid: Bool = false {
+        didSet {
+            isValid ? valid() : invalid()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,12 +31,12 @@ class StatusMessageLabel: UILabel {
         self.alpha = 0
     }
     
-    func valid() {
+    private func valid() {
         self.alpha = 1
         self.textColor = .systemGreen
     }
     
-    func invalid() {
+    private func invalid() {
         self.alpha = 1
         self.textColor = .systemRed
     }

@@ -53,24 +53,24 @@ class SignUpView: UIView {
     }
     
     func idValid() {
-        idStatusLabel.valid()
+        idStatusLabel.isValid = true
         idStatusLabel.text = "사용가능한 아이디입니다."
         idTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func idInvalid() {
-        idStatusLabel.invalid()
+        idStatusLabel.isValid = false
         idStatusLabel.text = "5~20자의 영문 소문자, 숫자, 특수기호 (_)(-) 만 사용가능합니다."
         idTextField.layer.borderColor = UIColor.red.cgColor
     }
     
     func passwordValid() {
-        passwordStatusLabel.valid()
+        passwordStatusLabel.isValid = true
         passwordStatusLabel.text = "안전한 비밀번호입니다."
     }
     
     func passwordInvalid(with statusMessage: String) {
-        passwordStatusLabel.invalid()
+        passwordStatusLabel.isValid = false
         if statusMessage == "" {
             passwordStatusLabel.text = "8자 이상 16자 이하로 입력해주세요."
         } else {
@@ -81,14 +81,14 @@ class SignUpView: UIView {
     
     func passwordMatch() {
         if passwordConfirmTextField.text?.count != 0 {
-            passwordConfirmStatusLabel.valid()
+            passwordConfirmStatusLabel.isValid = true
             passwordConfirmStatusLabel.text = "비밀번호가 일치합니다."
         }
         passwordConfirmTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func passwordMismatch() {
-        passwordConfirmStatusLabel.invalid()
+        passwordConfirmStatusLabel.isValid = false
         passwordConfirmStatusLabel.text = "비밀번호가 일치하지 않습니다."
         passwordConfirmTextField.layer.borderColor = UIColor.red.cgColor
     }
