@@ -13,12 +13,21 @@ class ViewController: UIViewController {
         self.view as! SignUpView
     }
     private let inputVerifier = InputVerifier()
+    var idViewModel = IdViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpView.delegate = self
         addObservers()
         setTextFieldDelegate()
+        signUpView.idTextField.bind { self.idViewModel.id.value = $0 }
+        idViewModel.idDidChanged = { result in
+            if result {
+                self.signUpView.idValid()
+            } else {
+                self.signUpView.idInvalid()
+            }
+        }
     }
 }
 
@@ -64,20 +73,10 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController {
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(changedIdValid), name: InputVerifier.idValid, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(changedIdInvalid), name: InputVerifier.idInvalid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordValid), name: InputVerifier.passwordValid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordInvalid), name: InputVerifier.passwordInvalid, object: nil)
     }
-    
-    @objc private func changedIdValid() {
-        signUpView.idValid()
-    }
-    
-    @objc private func changedIdInvalid() {
-        signUpView.idInvalid()
-    }
-    
+
     @objc private func enteredPasswordValid() {
         signUpView.passwordValid()
     }

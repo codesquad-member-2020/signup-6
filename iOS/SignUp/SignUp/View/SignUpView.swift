@@ -28,7 +28,7 @@ class SignUpView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
+//        idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingEnd(_:)), for: .editingDidEnd)
         passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
         nameTextField.addTarget(self, action: #selector(nameDidEntered), for: .editingDidEnd)
