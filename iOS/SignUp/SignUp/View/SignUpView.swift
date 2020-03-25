@@ -55,6 +55,7 @@ class SignUpView: UIView {
     
     @objc private func nameDidEntered() {
         guard let name = nameTextField.text, !name.isEmpty else {
+            nextButton.isEnabled = false
             nameNotEntered()
             return
         }
