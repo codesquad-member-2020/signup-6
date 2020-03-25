@@ -118,6 +118,7 @@ class SignUpView: UIView {
     }
     
     private func checkCondition() {
+        nextButton.isEnabled = false
         guard idStatusLabel.isValid == true else { return }
         guard passwordStatusLabel.isValid == true else { return }
         guard passwordConfirmStatusLabel.isValid == true else { return }
