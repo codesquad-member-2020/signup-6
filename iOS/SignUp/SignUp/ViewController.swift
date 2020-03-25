@@ -42,11 +42,14 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag = textField.tag + 1
-        let nextResponder = signUpView.viewWithTag(nextTag) as UIResponder?
-        if nextResponder != nil {
-            nextResponder?.becomeFirstResponder()
-        } else {
+        switch textField {
+        case signUpView.idTextField:
+            signUpView.passwordTextField.becomeFirstResponder()
+        case signUpView.passwordTextField:
+            signUpView.passwordConfirmTextField.becomeFirstResponder()
+        case signUpView.passwordConfirmTextField:
+            signUpView.nameTextField.becomeFirstResponder()
+        default:
             textField.resignFirstResponder()
         }
         return false
