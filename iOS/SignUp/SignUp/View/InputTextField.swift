@@ -23,5 +23,15 @@ class InputTextField: UITextField {
 
     private func setProperties() {
         self.layer.borderWidth = borderWidth
+        self.autocorrectionType = .no
+        disableAutoFill()
+    }
+    
+    func disableAutoFill() {
+        if #available(iOS 12, *) {
+            textContentType = .oneTimeCode
+        } else {
+            textContentType = .init(rawValue: "")
+        }
     }
 }

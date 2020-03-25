@@ -33,5 +33,6 @@ class NextButton: UIButton {
         self.tintColor = activeColor
         self.layer.borderWidth = borderWidth
         self.contentEdgeInsets = insets
+        self.isEnabled = false
     }
 }

@@ -18,8 +18,9 @@
 		443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A92429B356004F2722 /* StatusMessageLabel.swift */; };
 		443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD2429CE89004F2722 /* InputTextField.swift */; };
 		443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AF2429D6D1004F2722 /* NextButton.swift */; };
-		4473D9792429FB0600073E28 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9782429FB0600073E28 /* InputVerifier.swift */; };
 		4473D9812429FCF000073E28 /* InputVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9802429FCF000073E28 /* InputVerifierTests.swift */; };
+		44F5CA5D242A2D8D003DC815 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */; };
+		44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5E242A2E61003DC815 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +47,12 @@
 		443DD5A92429B356004F2722 /* StatusMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMessageLabel.swift; sourceTree = "<group>"; };
 		443DD5AD2429CE89004F2722 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		443DD5AF2429D6D1004F2722 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
-		4473D9782429FB0600073E28 /* InputVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifier.swift; sourceTree = "<group>"; };
 		4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputVerifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4473D9802429FCF000073E28 /* InputVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifierTests.swift; sourceTree = "<group>"; };
 		4473D9822429FCF000073E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A51C8B242B3320005C35BC /* SignUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignUp.entitlements; sourceTree = "<group>"; };
+		44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifier.swift; sourceTree = "<group>"; };
+		44F5CA5E242A2E61003DC815 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +94,8 @@
 		443DD58F242999E0004F2722 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				4473D9772429FABE00073E28 /* Model */,
+				44A51C8B242B3320005C35BC /* SignUp.entitlements */,
+				44F5CA5B242A2D80003DC815 /* Model */,
 				443DD590242999E0004F2722 /* AppDelegate.swift */,
 				443DD592242999E0004F2722 /* SceneDelegate.swift */,
 				443DD594242999E0004F2722 /* ViewController.swift */,
@@ -112,17 +116,9 @@
 				443DD5A92429B356004F2722 /* StatusMessageLabel.swift */,
 				443DD5AD2429CE89004F2722 /* InputTextField.swift */,
 				443DD5AF2429D6D1004F2722 /* NextButton.swift */,
+				44F5CA5E242A2E61003DC815 /* SignUpView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		4473D9772429FABE00073E28 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4473D9782429FB0600073E28 /* InputVerifier.swift */,
-			);
-			name = Model;
-			path = View/Model;
 			sourceTree = "<group>";
 		};
 		4473D97F2429FCF000073E28 /* InputVerifierTests */ = {
@@ -132,6 +128,14 @@
 				4473D9822429FCF000073E28 /* Info.plist */,
 			);
 			path = InputVerifierTests;
+			sourceTree = "<group>";
+		};
+		44F5CA5B242A2D80003DC815 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +242,10 @@
 				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
 				443DD595242999E0004F2722 /* ViewController.swift in Sources */,
 				443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */,
-				4473D9792429FB0600073E28 /* InputVerifier.swift in Sources */,
+				44F5CA5D242A2D8D003DC815 /* InputVerifier.swift in Sources */,
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
+				44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */,
 				443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */,
 				443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */,
 				443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */,
@@ -403,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SignUp/SignUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52LA5XMGV3;
 				INFOPLIST_FILE = SignUp/Info.plist;
@@ -421,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SignUp/SignUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 52LA5XMGV3;
 				INFOPLIST_FILE = SignUp/Info.plist;
