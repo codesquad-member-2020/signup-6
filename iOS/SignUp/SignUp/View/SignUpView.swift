@@ -8,14 +8,7 @@
 
 import UIKit
 
-protocol SignUpViewDelegate: class {
-    func idTextFieldChanged(changes: String)
-    func passwordTextFieldEditingEnd(changes: String)
-}
-
 class SignUpView: UIView {
-    weak var delegate: SignUpViewDelegate?
-    
     @IBOutlet weak var idTextField: InputTextField!
     @IBOutlet weak var idStatusLabel: StatusMessageLabel!
     @IBOutlet weak var passwordTextField: InputTextField!
@@ -28,23 +21,10 @@ class SignUpView: UIView {
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-//        idTextField.addTarget(self, action: #selector(idTextFieldDidChange(_:)), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(passwordTextFieldEditingEnd(_:)), for: .editingDidEnd)
         passwordConfirmTextField.addTarget(self, action: #selector(confirmPassword(_:)), for: .editingDidEnd)
         nameTextField.addTarget(self, action: #selector(nameDidEntered), for: .editingDidEnd)
     }
-    
-    @objc private func idTextFieldDidChange(_ textField: InputTextField) {
-        guard let changes = textField.text else { return }
-        delegate?.idTextFieldChanged(changes: changes)
-    }
-    
-    @objc private func passwordTextFieldEditingEnd(_ textField: InputTextField) {
-        guard let changes = textField.text else { return }
-        delegate?.passwordTextFieldEditingEnd(changes: changes)
-        confirmPassword(passwordConfirmTextField)
-    }
-    
+        
     @objc private func confirmPassword(_ textField: InputTextField) {
         if passwordTextField.text == textField.text {
             passwordMatch()
@@ -82,6 +62,7 @@ class SignUpView: UIView {
     func passwordValid() {
         passwordStatusLabel.isValid = true
         passwordStatusLabel.text = "안전한 비밀번호입니다."
+        passwordTextField.layer.borderColor = UIColor.black.cgColor
         checkCondition()
     }
     
