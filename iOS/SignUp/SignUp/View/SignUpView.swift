@@ -19,23 +19,6 @@ class SignUpView: UIView {
     @IBOutlet weak var nameStatusLabel: StatusMessageLabel!
     @IBOutlet weak var nextButton: NextButton!
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        nameTextField.addTarget(self, action: #selector(nameDidEntered), for: .editingDidEnd)
-    }
-    
-    @objc private func nameDidEntered() {
-        guard let name = nameTextField.text, !name.isEmpty else {
-            nextButton.isEnabled = false
-            nameNotEntered()
-            return
-        }
-        nameStatusLabel.isValid = true
-        nameStatusLabel.alpha = 0
-        nameTextField.layer.borderColor = UIColor.black.cgColor
-        checkCondition()
-    }
-    
     func idValid() {
         idStatusLabel.isValid = true
         idStatusLabel.text = "사용가능한 아이디입니다."
@@ -82,7 +65,12 @@ class SignUpView: UIView {
         checkCondition()
     }
     
-    private func nameNotEntered() {
+    func nameEntered() {
+        nameStatusLabel.isValid = true
+        nameStatusLabel.alpha = 0
+    }
+    
+    func nameNotEntered() {
         nameStatusLabel.isValid = false
         nameStatusLabel.text = "이름은 필수 입력 항목입니다."
         nameTextField.layer.borderColor = UIColor.red.cgColor

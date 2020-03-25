@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     }
     var idViewModel = IdViewModel()
     var passwordViewModel = PasswordViewModel()
+    var nameViewModel = NameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,14 @@ class ViewController: UIViewController {
                 self.signUpView.passwordMatch()
             } else {
                 self.signUpView.passwordMismatch()
+            }
+        }
+        signUpView.nameTextField.bind { self.nameViewModel.name.value = $0 }
+        nameViewModel.nameDidChanged = { result in
+            if result {
+                self.signUpView.nameEntered()
+            } else {
+                self.signUpView.nameNotEntered()
             }
         }
     }
