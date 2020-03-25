@@ -33,7 +33,7 @@ extension ViewController: SignUpViewDelegate {
 }
 
 extension ViewController: UITextFieldDelegate {
-    func setTextFieldDelegate() {
+    private func setTextFieldDelegate() {
         signUpView.idTextField.delegate = self
         signUpView.passwordTextField.delegate = self
         signUpView.passwordConfirmTextField.delegate = self
@@ -63,26 +63,26 @@ extension ViewController: UITextFieldDelegate {
 }
 
 extension ViewController {
-    func addObservers() {
+    private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(changedIdValid), name: InputVerifier.idValid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changedIdInvalid), name: InputVerifier.idInvalid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordValid), name: InputVerifier.passwordValid, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordInvalid), name: InputVerifier.passwordInvalid, object: nil)
     }
     
-    @objc func changedIdValid() {
+    @objc private func changedIdValid() {
         signUpView.idValid()
     }
     
-    @objc func changedIdInvalid() {
+    @objc private func changedIdInvalid() {
         signUpView.idInvalid()
     }
     
-    @objc func enteredPasswordValid() {
+    @objc private func enteredPasswordValid() {
         signUpView.passwordValid()
     }
     
-    @objc func enteredPasswordInvalid(_ notification: Notification) {
+    @objc private func enteredPasswordInvalid(_ notification: Notification) {
         guard let notIncludedElements = notification.userInfo?[InputVerifier.passwordInvalid] as? String else { return }
         signUpView.passwordInvalid(with: notIncludedElements)
     }
