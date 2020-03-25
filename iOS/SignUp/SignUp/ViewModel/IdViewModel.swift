@@ -24,7 +24,7 @@ class IdViewModel {
         }
     }
     
-    func verifyIdInput(id: String) -> Bool {
+    private func verifyIdInput(id: String) -> Bool {
         return !id.match(with: idRegExr).isEmpty
     }
 }

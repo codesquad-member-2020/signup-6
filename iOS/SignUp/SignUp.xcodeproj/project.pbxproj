@@ -143,8 +143,8 @@
 		44846C86242B9EEF00521C8D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				44846C87242B9F2800521C8D /* IdViewModel.swift */,
 				44846C89242BA64600521C8D /* Dynamic.swift */,
+				44846C87242B9F2800521C8D /* IdViewModel.swift */,
 				44846C8E242BB16E00521C8D /* PasswordViewModel.swift */,
 				44846C90242BBF1300521C8D /* NameViewModel.swift */,
 			);

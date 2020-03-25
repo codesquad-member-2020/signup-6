@@ -51,7 +51,7 @@ class PasswordViewModel {
         }
     }
     
-    func verifyPasswordInput(password: String, handler: @escaping (_: String) -> ()) -> Bool {
+    private func verifyPasswordInput(password: String, handler: @escaping (_: String) -> ()) -> Bool {
         var notIncludedElements = [EssentialElement]()
         guard password.count >= 8, password.count <= 16 else {
             handler("")
