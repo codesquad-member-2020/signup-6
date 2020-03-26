@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441FA517242CA39A005E40A9 /* PushSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FA516242CA39A005E40A9 /* PushSegue.swift */; };
 		443DD591242999E0004F2722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD590242999E0004F2722 /* AppDelegate.swift */; };
 		443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD592242999E0004F2722 /* SceneDelegate.swift */; };
 		443DD595242999E0004F2722 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD594242999E0004F2722 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		441FA516242CA39A005E40A9 /* PushSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSegue.swift; sourceTree = "<group>"; };
 		443DD58D242999E0004F2722 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443DD590242999E0004F2722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443DD592242999E0004F2722 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				443DD5AD2429CE89004F2722 /* InputTextField.swift */,
 				443DD5AF2429D6D1004F2722 /* NextButton.swift */,
 				44F5CA5E242A2E61003DC815 /* SignUpView.swift */,
+				441FA516242CA39A005E40A9 /* PushSegue.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				44846C8A242BA64600521C8D /* Dynamic.swift in Sources */,
 				44846C88242B9F2800521C8D /* IdViewModel.swift in Sources */,
 				44846C91242BBF1300521C8D /* NameViewModel.swift in Sources */,
+				441FA517242CA39A005E40A9 /* PushSegue.swift in Sources */,
 				44846C8D242BAA1200521C8D /* StringExtension.swift in Sources */,
 				443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */,
 			);
