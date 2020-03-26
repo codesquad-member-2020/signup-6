@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignUpViewController.swift
 //  SignUp
 //
 //  Created by TTOzzi on 2020/03/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SignUpViewController: UIViewController {
     private var signUpView: SignUpView {
         self.view as! SignUpView
     }
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension SignUpViewController: UITextFieldDelegate {
     private func setTextFieldDelegate() {
         signUpView.idTextField.delegate = self
         signUpView.passwordTextField.delegate = self
@@ -56,7 +56,7 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
-extension ViewController {
+extension SignUpViewController {
     private func setBindings() {
         bindIdViewModel()
         bindPasswordViewModel()

@@ -10,7 +10,7 @@
 		441FA517242CA39A005E40A9 /* PushSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FA516242CA39A005E40A9 /* PushSegue.swift */; };
 		443DD591242999E0004F2722 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD590242999E0004F2722 /* AppDelegate.swift */; };
 		443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD592242999E0004F2722 /* SceneDelegate.swift */; };
-		443DD595242999E0004F2722 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD594242999E0004F2722 /* ViewController.swift */; };
+		443DD595242999E0004F2722 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD594242999E0004F2722 /* SignUpViewController.swift */; };
 		443DD598242999E0004F2722 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443DD596242999E0004F2722 /* Main.storyboard */; };
 		443DD59A242999E0004F2722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443DD599242999E0004F2722 /* Assets.xcassets */; };
 		443DD59D242999E0004F2722 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443DD59B242999E0004F2722 /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 		443DD58D242999E0004F2722 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443DD590242999E0004F2722 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443DD592242999E0004F2722 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		443DD594242999E0004F2722 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		443DD594242999E0004F2722 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		443DD597242999E0004F2722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		443DD599242999E0004F2722 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		443DD59C242999E0004F2722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				44F5CA5B242A2D80003DC815 /* Model */,
 				443DD590242999E0004F2722 /* AppDelegate.swift */,
 				443DD592242999E0004F2722 /* SceneDelegate.swift */,
-				443DD594242999E0004F2722 /* ViewController.swift */,
+				443DD594242999E0004F2722 /* SignUpViewController.swift */,
 				443DD596242999E0004F2722 /* Main.storyboard */,
 				443DD5A62429AFA1004F2722 /* View */,
 				443DD599242999E0004F2722 /* Assets.xcassets */,
@@ -272,7 +272,7 @@
 			files = (
 				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
 				44846C8F242BB16E00521C8D /* PasswordViewModel.swift in Sources */,
-				443DD595242999E0004F2722 /* ViewController.swift in Sources */,
+				443DD595242999E0004F2722 /* SignUpViewController.swift in Sources */,
 				443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */,
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
