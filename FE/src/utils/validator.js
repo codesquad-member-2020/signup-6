@@ -47,6 +47,13 @@ const validateName = value => {
 };
 
 // year of birth
+const validateYearOfBirth = value => {
+	if (!value) return ["fail", ""];
+	return !/^[0-9]{4,}$/.test(value)
+		? ["fail", "태어난 년도 4자리를 정확하게 입력하세요."]
+		: _isValidAge(value);
+};
+
 const _isValidAge = value => {
 	const thisYear = new Date().getFullYear();
 	const birthYearOfAge15 = thisYear - 14;
@@ -60,14 +67,12 @@ const _isValidAge = value => {
 	}
 };
 
-const validateYearOfBirth = value => {
+// date of birth
+const validateDateOfBirth = value => {
 	if (!value) return ["fail", ""];
-	return !/^[0-9]{4,}$/.test(value)
-		? ["fail", "태어난 년도 4자리를 정확하게 입력하세요."]
-		: _isValidAge(value);
+	return !/^[0-9]{1,}$/.test(value) ? ["fail", "유효한 날짜가 아닙니다."] : _isValidDate(value);
 };
 
-// date of birth
 const _isValidDate = value => {
 	const month = Number(document.getElementById("mm").value);
 	if (isNaN(month)) return ["fail", "태어난 달을 선택해주세요."];
@@ -75,11 +80,6 @@ const _isValidDate = value => {
 	let max;
 	month % 2 === 1 ? (max = 31) : month === 2 ? (max = 28) : (max = 30);
 	return value < min || value > max ? ["fail", "유효한 날짜가 아닙니다."] : ["pass", ""];
-};
-
-const validateDateOfBirth = value => {
-	if (!value) return ["fail", ""];
-	return !/^[0-9]{1,}$/.test(value) ? ["fail", "유효한 날짜가 아닙니다."] : _isValidDate(value);
 };
 
 // email
