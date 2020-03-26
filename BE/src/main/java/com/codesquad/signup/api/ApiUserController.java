@@ -2,6 +2,8 @@ package com.codesquad.signup.api;
 
 import com.codesquad.signup.domain.User;
 import com.codesquad.signup.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
@@ -9,6 +11,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/users")
 public class ApiUserController {
+
+    private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
     @Autowired
     UserRepository userRepository;
