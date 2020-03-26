@@ -42,3 +42,5 @@ document
 document
 	.getElementById("interest")
 	.addEventListener("focusout", e => setMessage(e.target, _.validateInterest));
+
+document.getElementById("signup_form").addEventListener("submit", _.validateForm);

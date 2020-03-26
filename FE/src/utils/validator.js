@@ -1,6 +1,20 @@
 import http from "../utils/http.js";
 import { API } from "../utils/const.js";
 
+const fields = {
+	id: { value: null, status: false },
+	password: { value: null, status: false },
+	password_check: { value: null, status: false },
+	name: { value: null, status: false },
+	yy: { value: null, status: false },
+	mm: { value: "월", status: false },
+	dd: { value: null, status: false },
+	gender: { value: "성별", status: false },
+	email: { value: null, status: false },
+	mobile: { value: null, status: false },
+	interest: { value: null, status: false }
+};
+
 // id
 const validateId = value => {
 	if (!value) return ["fail", ""];
@@ -131,6 +145,12 @@ const validateInterest = value => {
 	return interestList.length < 3 ? ["fail", "3개 이상의 관심사를 입력해주세요."] : ["pass", ""];
 };
 
+// form
+const validateForm = e => {
+	e.preventDefault();
+	console.log("inside form validator", fields);
+};
+
 export default {
 	validateId,
 	validatePassword,
@@ -142,5 +162,7 @@ export default {
 	validateGender,
 	validateEmail,
 	validatePhoneNumber,
-	validateInterest
+	validateInterest,
+	validateForm,
+	fields
 };

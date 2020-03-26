@@ -1,11 +1,4 @@
-const _getMessage = validator => value => validator(value);
-
-const _setColor = (element, status) => {
-	if (element.classList.contains(status)) return;
-	const statusSwitchingObj = { pass: "fail", fail: "pass" };
-	element.classList.remove(statusSwitchingObj[status]);
-	element.classList.add(status);
-};
+import _ from "./validator.js";
 
 let timer;
 
@@ -14,9 +7,20 @@ export const setMessage = (target, validator) => {
 		clearTimeout(timer);
 	}
 	timer = setTimeout(async () => {
-		const [status, message] = await _getMessage(validator)(target.value);
+		const { id, value } = target;
+		const [status, message] = await validator(value);
 		const messageElement = target.closest(".input_container").lastElementChild;
-		_setColor(messageElement, status);
+		_changeMessageColor(messageElement, status);
 		messageElement.textContent = message;
+		_.fields[id].value = value;
+		_.fields[id].status = status;
+		console.log(id, "updated", _.fields);
 	}, 200);
+};
+
+const _changeMessageColor = (element, status) => {
+	if (element.classList.contains(status)) return;
+	const statusSwitchingObj = { pass: "fail", fail: "pass" };
+	element.classList.remove(statusSwitchingObj[status]);
+	element.classList.add(status);
 };
