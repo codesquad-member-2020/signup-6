@@ -20,15 +20,15 @@ class PasswordViewModel {
     private let number = "[0-9]"
     private let specialCharacter = "[!@#$%^*+=~&_;:-]"
     private var statusMessage: String?
-    var password = Dynamic<String>("")
-    var passwordConfirm = Dynamic<String>("")
+    var password = Dynamic<String>.init("")
+    var passwordConfirm = Dynamic<String>.init("")
     var passwordDidChanged: ((Bool, String?) -> Void) = { _, _ in }
     var passwordConfirmDidChanged: (Bool) -> Void = { _ in }
-    var isPasswordValid = Dynamic<Bool>(false)
-    var isPasswordConfirmed = Dynamic<Bool>(false)
+    var isPasswordValid = Dynamic<Bool>.init(false)
+    var isPasswordConfirmed = Dynamic<Bool>.init(false)
     
     init() {
-        password.bind = { text in
+        password.boundClosure = { text in
             self.isPasswordValid.value = self.verifyPasswordInput(password: text) { (status) in
                 self.statusMessage = status
             }
@@ -36,15 +36,15 @@ class PasswordViewModel {
                 self.isPasswordConfirmed.value = self.passwordConfirm.value == text
             }
         }
-        isPasswordValid.bind = { result in
+        isPasswordValid.boundClosure = { result in
             self.passwordDidChanged(result, self.statusMessage)
         }
-        passwordConfirm.bind = { text in
+        passwordConfirm.boundClosure = { text in
             if self.passwordConfirm.value!.count != 0 {
                 self.isPasswordConfirmed.value = self.password.value == text
             }
         }
-        isPasswordConfirmed.bind = { result in
+        isPasswordConfirmed.boundClosure = { result in
             self.passwordConfirmDidChanged(result)
         }
     }

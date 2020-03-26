@@ -12,13 +12,13 @@ class IdViewModel {
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     var id = Dynamic<String>.init("")
     var idDidChanged: ((Bool) -> Void) = { _ in }
-    var isIdValid = Dynamic<Bool>(false)
+    var isIdValid = Dynamic<Bool>.init(false)
     
     init() {
-        id.bind = { text in
+        id.boundClosure = { text in
             self.isIdValid.value = self.verifyIdInput(id: text)
         }
-        isIdValid.bind = { result in
+        isIdValid.boundClosure = { result in
             self.idDidChanged(result)
         }
     }

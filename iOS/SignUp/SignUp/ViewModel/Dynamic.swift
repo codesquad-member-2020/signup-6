@@ -9,10 +9,10 @@
 import Foundation
 
 class Dynamic<T> {
-    var bind: (T) -> Void = { _ in }
+    var boundClosure: (T) -> Void = { _ in }
     var value: T? {
         didSet {
-            bind(value!)
+            boundClosure(value!)
         }
     }
     
