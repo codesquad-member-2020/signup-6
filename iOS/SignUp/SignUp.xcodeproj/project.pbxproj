@@ -19,7 +19,11 @@
 		443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD2429CE89004F2722 /* InputTextField.swift */; };
 		443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AF2429D6D1004F2722 /* NextButton.swift */; };
 		4473D9812429FCF000073E28 /* InputVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9802429FCF000073E28 /* InputVerifierTests.swift */; };
-		44F5CA5D242A2D8D003DC815 /* InputVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */; };
+		44846C88242B9F2800521C8D /* IdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C87242B9F2800521C8D /* IdViewModel.swift */; };
+		44846C8A242BA64600521C8D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C89242BA64600521C8D /* Dynamic.swift */; };
+		44846C8D242BAA1200521C8D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C8C242BAA1200521C8D /* StringExtension.swift */; };
+		44846C8F242BB16E00521C8D /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C8E242BB16E00521C8D /* PasswordViewModel.swift */; };
+		44846C91242BBF1300521C8D /* NameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C90242BBF1300521C8D /* NameViewModel.swift */; };
 		44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5E242A2E61003DC815 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +54,12 @@
 		4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputVerifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4473D9802429FCF000073E28 /* InputVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifierTests.swift; sourceTree = "<group>"; };
 		4473D9822429FCF000073E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44846C87242B9F2800521C8D /* IdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdViewModel.swift; sourceTree = "<group>"; };
+		44846C89242BA64600521C8D /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		44846C8C242BAA1200521C8D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		44846C8E242BB16E00521C8D /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		44846C90242BBF1300521C8D /* NameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewModel.swift; sourceTree = "<group>"; };
 		44A51C8B242B3320005C35BC /* SignUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignUp.entitlements; sourceTree = "<group>"; };
-		44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifier.swift; sourceTree = "<group>"; };
 		44F5CA5E242A2E61003DC815 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				44A51C8B242B3320005C35BC /* SignUp.entitlements */,
+				44846C8B242BA9FC00521C8D /* Extension */,
+				44846C86242B9EEF00521C8D /* ViewModel */,
 				44F5CA5B242A2D80003DC815 /* Model */,
 				443DD590242999E0004F2722 /* AppDelegate.swift */,
 				443DD592242999E0004F2722 /* SceneDelegate.swift */,
@@ -130,10 +140,28 @@
 			path = InputVerifierTests;
 			sourceTree = "<group>";
 		};
+		44846C86242B9EEF00521C8D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				44846C89242BA64600521C8D /* Dynamic.swift */,
+				44846C87242B9F2800521C8D /* IdViewModel.swift */,
+				44846C8E242BB16E00521C8D /* PasswordViewModel.swift */,
+				44846C90242BBF1300521C8D /* NameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		44846C8B242BA9FC00521C8D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				44846C8C242BAA1200521C8D /* StringExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		44F5CA5B242A2D80003DC815 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				44F5CA5C242A2D8D003DC815 /* InputVerifier.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,14 +268,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
+				44846C8F242BB16E00521C8D /* PasswordViewModel.swift in Sources */,
 				443DD595242999E0004F2722 /* ViewController.swift in Sources */,
 				443DD5A82429B058004F2722 /* TextFieldLabel.swift in Sources */,
-				44F5CA5D242A2D8D003DC815 /* InputVerifier.swift in Sources */,
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
 				44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */,
 				443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */,
 				443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */,
+				44846C8A242BA64600521C8D /* Dynamic.swift in Sources */,
+				44846C88242B9F2800521C8D /* IdViewModel.swift in Sources */,
+				44846C91242BBF1300521C8D /* NameViewModel.swift in Sources */,
+				44846C8D242BAA1200521C8D /* StringExtension.swift in Sources */,
 				443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

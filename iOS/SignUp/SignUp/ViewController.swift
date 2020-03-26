@@ -12,23 +12,14 @@ class ViewController: UIViewController {
     private var signUpView: SignUpView {
         self.view as! SignUpView
     }
-    private let inputVerifier = InputVerifier()
+    private var idViewModel = IdViewModel()
+    private var passwordViewModel = PasswordViewModel()
+    private var nameViewModel = NameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpView.delegate = self
-        addObservers()
         setTextFieldDelegate()
-    }
-}
-
-extension ViewController: SignUpViewDelegate {
-    func idTextFieldChanged(changes: String) {
-        inputVerifier.verifyIdInput(id: changes)
-    }
-    
-    func passwordTextFieldEditingEnd(changes: String) {
-        inputVerifier.verifyPasswordInput(password: changes)
+        setBindings()
     }
 }
 
@@ -51,39 +42,93 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag = textField.tag + 1
-        let nextResponder = signUpView.viewWithTag(nextTag) as UIResponder?
-        if nextResponder != nil {
-            nextResponder?.becomeFirstResponder()
-        } else {
+        let nextTextFieldList: [UITextField: UITextField] = [
+            signUpView.idTextField: signUpView.passwordTextField,
+            signUpView.passwordTextField: signUpView.passwordConfirmTextField,
+            signUpView.passwordConfirmTextField: signUpView.nameTextField
+        ]
+        guard let nextTextField = nextTextFieldList[textField] else {
             textField.resignFirstResponder()
+            return false
         }
+        nextTextField.becomeFirstResponder()
         return false
     }
 }
 
 extension ViewController {
-    private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(changedIdValid), name: InputVerifier.idValid, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(changedIdInvalid), name: InputVerifier.idInvalid, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordValid), name: InputVerifier.passwordValid, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(enteredPasswordInvalid), name: InputVerifier.passwordInvalid, object: nil)
+    private func setBindings() {
+        bindIdViewModel()
+        bindPasswordViewModel()
+        bindNameViewModel()
     }
     
-    @objc private func changedIdValid() {
-        signUpView.idValid()
+    private func bindIdViewModel() {
+        signUpView.idTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.idViewModel.id.value = $0
+        }
+        idViewModel.idDidChanged = { result in
+            if result {
+                self.signUpView.idValid()
+            } else {
+                self.signUpView.idInvalid()
+            }
+            self.checkCondition()
+        }
     }
     
-    @objc private func changedIdInvalid() {
-        signUpView.idInvalid()
+    private func bindPasswordViewModel() {
+        signUpView.passwordTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.passwordViewModel.password.value = $0
+        }
+        signUpView.passwordConfirmTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.passwordViewModel.passwordConfirm.value = $0
+        }
+        passwordViewModel.passwordDidChanged = { result, status in
+            if result {
+                self.signUpView.passwordValid()
+            } else {
+                self.signUpView.passwordInvalid(with: status!)
+            }
+            self.checkCondition()
+        }
+        passwordViewModel.passwordConfirmDidChanged = { result in
+            if result {
+                self.signUpView.passwordMatch()
+            } else {
+                self.signUpView.passwordMismatch()
+            }
+            self.checkCondition()
+        }
     }
     
-    @objc private func enteredPasswordValid() {
-        signUpView.passwordValid()
+    private func bindNameViewModel() {
+        signUpView.nameTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.nameViewModel.name.value = $0
+        }
+        nameViewModel.nameDidChanged = { result in
+            if result {
+                self.signUpView.nameEntered()
+            } else {
+                self.signUpView.nameNotEntered()
+            }
+            self.checkCondition()
+        }
     }
     
-    @objc private func enteredPasswordInvalid(_ notification: Notification) {
-        guard let notIncludedElements = notification.userInfo?[InputVerifier.passwordInvalid] as? String else { return }
-        signUpView.passwordInvalid(with: notIncludedElements)
+    private func checkCondition() {
+        signUpView.disableNextButton()
+        guard idViewModel.isIdValid.value! else { return }
+        guard passwordViewModel.isPasswordValid.value! else { return }
+        guard passwordViewModel.isPasswordConfirmed.value! else { return }
+        guard nameViewModel.isNameValid.value! else {
+            self.signUpView.nameNotEntered()
+            return
+        }
+        signUpView.enableNextButton()
     }
 }

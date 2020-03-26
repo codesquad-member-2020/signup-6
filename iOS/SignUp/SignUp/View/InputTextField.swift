@@ -10,6 +10,7 @@ import UIKit
 
 class InputTextField: UITextField {
     private var borderWidth: CGFloat = 0.8
+    var textChanged: (String) -> () = { _ in }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,5 +34,14 @@ class InputTextField: UITextField {
         } else {
             textContentType = .init(rawValue: "")
         }
+    }
+    
+    func bind(callback: @escaping (String) -> ()) {
+        self.textChanged = callback
+        self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        self.textChanged(textField.text!)
     }
 }
