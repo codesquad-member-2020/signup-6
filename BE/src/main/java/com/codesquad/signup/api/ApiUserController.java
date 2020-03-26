@@ -1,56 +1,29 @@
 package com.codesquad.signup.api;
 
+import com.codesquad.signup.domain.DuplicateDTO;
 import com.codesquad.signup.domain.User;
 import com.codesquad.signup.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
 public class ApiUserController {
 
-    private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
-
     @Autowired
     UserRepository userRepository;
+    private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
     @GetMapping("/form")
     public String form() {
         return "index";
-    }
-
-    @GetMapping("/exist/{userId}")
-    public boolean checkUserId(@PathVariable String userId) {
-        if (!userRepository.findByUserId(userId).isPresent()) {
-            User checkedUserId = new User (userId, "empty", "empty", "empty", "empty", "empty", "empty");
-            userRepository.save(checkedUserId);
-            return true;
-        }
-        return false;
-    }
-
-    @GetMapping("/exist/{userId}/email/{email}")
-    public boolean checkEmail(@PathVariable String userId, @PathVariable String email) {
-        Optional<String> duplicateEmail = userRepository.findByEmail(email);
-        System.out.println(duplicateEmail);
-        if (!duplicateEmail.isPresent()) {
-            userRepository.updateEmail(userId, email);
-            return true;
-        }
-        return false;
-    }
-
-    @GetMapping("/exist/{userId}/mobile/{mobile}")
-    public boolean checkMobile(@PathVariable String userId, @PathVariable String mobile) {
-        Optional<String> duplicatePhone = userRepository.findByMobile(mobile);
-        if (!duplicatePhone.isPresent()) {
-            userRepository.updateMobile(userId, mobile);
-            return true;
-        }
-        return false;
     }
 
     @PostMapping("")

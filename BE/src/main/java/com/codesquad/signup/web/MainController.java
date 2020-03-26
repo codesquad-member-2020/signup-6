@@ -1,7 +1,5 @@
 package com.codesquad.signup.web;
 
-import com.codesquad.signup.domain.Genders;
-import com.codesquad.signup.domain.User;
 import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
