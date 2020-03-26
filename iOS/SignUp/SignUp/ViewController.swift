@@ -42,16 +42,16 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case signUpView.idTextField:
-            signUpView.passwordTextField.becomeFirstResponder()
-        case signUpView.passwordTextField:
-            signUpView.passwordConfirmTextField.becomeFirstResponder()
-        case signUpView.passwordConfirmTextField:
-            signUpView.nameTextField.becomeFirstResponder()
-        default:
+        let nextTextFieldList: [UITextField: UITextField] = [
+            signUpView.idTextField: signUpView.passwordTextField,
+            signUpView.passwordTextField: signUpView.passwordConfirmTextField,
+            signUpView.passwordConfirmTextField: signUpView.nameTextField
+        ]
+        guard let nextTextField = nextTextFieldList[textField] else {
             textField.resignFirstResponder()
+            return false
         }
+        nextTextField.becomeFirstResponder()
         return false
     }
 }
