@@ -12,14 +12,23 @@ class SignUpViewController: UIViewController {
     private var signUpView: SignUpView {
         self.view as! SignUpView
     }
-    private var idViewModel = IdViewModel()
-    private var passwordViewModel = PasswordViewModel()
-    private var nameViewModel = NameViewModel()
+    private var idViewModel = IdViewModel.shared
+    private var passwordViewModel = PasswordViewModel.shared
+    private var nameViewModel = NameViewModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldDelegate()
         setBindings()
+        loadData()
+    }
+    
+    private func loadData() {
+        signUpView.idTextField.text = idViewModel.id.value
+        signUpView.passwordTextField.text = passwordViewModel.password.value
+        signUpView.passwordConfirmTextField.text = passwordViewModel.passwordConfirm.value
+        signUpView.nameTextField.text = nameViewModel.name.value
+        checkCondition()
     }
 }
 
