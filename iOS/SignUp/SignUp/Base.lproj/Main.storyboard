@@ -263,7 +263,7 @@
                                 <rect key="frame" x="268" y="492.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-E7-e2L">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-E7-e2L" customClass="PreviousButton" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="100" y="492.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>

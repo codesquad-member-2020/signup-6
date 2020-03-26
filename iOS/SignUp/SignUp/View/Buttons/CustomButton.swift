@@ -1,16 +1,14 @@
 //
-//  NextButton.swift
+//  CustomButton.swift
 //  SignUp
 //
-//  Created by TTOzzi on 2020/03/24.
+//  Created by TTOzzi on 2020/03/26.
 //  Copyright © 2020 TTOzzi. All rights reserved.
 //
 
 import UIKit
 
-class NextButton: UIButton {
-    private var buttonTitle = "다음"
-    private var buttonImage = UIImage(systemName: "chevron.right.circle.fill")
+class CustomButton: UIButton {
     private var textSize: CGFloat = 18.0
     private var activeColor = UIColor(red: 0.019, green: 0.652, blue: 0.0, alpha: 1)
     private var borderWidth: CGFloat = 0.8
@@ -18,21 +16,18 @@ class NextButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setProperties()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setProperties()
     }
     
-    private func setProperties() {
-        self.setTitle(buttonTitle, for: .normal)
-        self.setImage(buttonImage, for: .normal)
+    func setProperties(title: String, image: UIImage?) {
+        self.setTitle(title, for: .normal)
+        self.setImage(image, for: .normal)
         self.titleLabel?.font = .systemFont(ofSize: textSize)
         self.tintColor = activeColor
         self.layer.borderWidth = borderWidth
         self.contentEdgeInsets = insets
-        self.isEnabled = false
     }
 }
