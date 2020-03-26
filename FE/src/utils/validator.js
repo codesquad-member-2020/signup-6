@@ -87,6 +87,9 @@ const _isValidAge = value => {
 	}
 };
 
+// month of birth
+const validateMonthOfBirth = value => (value !== "월" ? ["pass", ""] : ["fail", ""]);
+
 // date of birth
 const validateDateOfBirth = value => {
 	if (!value) return ["fail", ""];
@@ -101,6 +104,9 @@ const _isValidDate = value => {
 	month % 2 === 1 ? (max = 31) : month === 2 ? (max = 28) : (max = 30);
 	return value < min || value > max ? ["fail", "유효한 날짜가 아닙니다."] : ["pass", ""];
 };
+
+// gender
+const validateGender = value => (value !== "성별" ? ["pass", ""] : ["fail", ""]);
 
 // email
 const validateEmail = value => {
@@ -131,7 +137,9 @@ export default {
 	doubleCheckPassword,
 	validateName,
 	validateYearOfBirth,
+	validateMonthOfBirth,
 	validateDateOfBirth,
+	validateGender,
 	validateEmail,
 	validatePhoneNumber,
 	validateInterest

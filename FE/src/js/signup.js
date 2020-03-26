@@ -20,8 +20,16 @@ document
 	.addEventListener("input", e => setMessage(e.target, _.validateYearOfBirth));
 
 document
+	.getElementById("mm")
+	.addEventListener("click", e => setMessage(e.target, _.validateMonthOfBirth));
+
+document
 	.getElementById("dd")
 	.addEventListener("input", e => setMessage(e.target, _.validateDateOfBirth));
+
+document
+	.getElementById("gender")
+	.addEventListener("click", e => setMessage(e.target, _.validateGender));
 
 document
 	.getElementById("email")
