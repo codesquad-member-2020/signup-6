@@ -13,8 +13,8 @@ export const setMessage = (target, validator) => {
 	if (timer) {
 		clearTimeout(timer);
 	}
-	timer = setTimeout(() => {
-		const [status, message] = _getMessage(validator)(target.value);
+	timer = setTimeout(async () => {
+		const [status, message] = await _getMessage(validator)(target.value);
 		const messageElement = target.closest(".input_container").lastElementChild;
 		_setColor(messageElement, status);
 		messageElement.textContent = message;

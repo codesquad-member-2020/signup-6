@@ -1,12 +1,32 @@
+import http from "../utils/http.js";
+import { API } from "../utils/const.js";
+
 // id
 const validateId = value => {
 	if (!value) return ["fail", ""];
 	if (!/^[a-z0-9_\-]{5,20}$/.test(value)) {
-		return ["fail", "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다."];
+		return ["fail", "5~20자의 영문 소문자, 숫자와 특수기호(_)(-)만 사용 가능합니다."];
 	} else {
-		// 아이디 중복 확인
-		return ["pass", "사용 가능한 아이디 입니다."];
+		return http
+			.GET(API.DEV + value)
+			.then(_handleResponse)
+			.catch(_handleError);
 	}
+};
+
+const _handleResponse = res => {
+	const { code, exist } = res;
+	if (code === 200) {
+		return exist === "true"
+			? ["fail", "이미 사용중인 아이디입니다."]
+			: ["pass", "사용 가능한 아이디 입니다."];
+	}
+	throw Error(`Network Error ─ ${code}`);
+};
+
+const _handleError = err => {
+	console.error(err);
+	return ["fail", "네트워크 에러가 발생했습니다. 잠시 후 다시 시도해 주세요."];
 };
 
 // password
