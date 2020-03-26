@@ -6,35 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/users/exist")
 public class ApiDuplicateController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/exist/userId/{userId}")
-    public DuplicateDTO isDuplicatedUserId(@PathVariable String userId) {
-        return getDuplicateDTO(userId);
+    @GetMapping("/userId")
+    public DuplicateDTO isDuplicatedUserId(@RequestParam("userId") String userId) {
+        return getDuplicateDTO("userId", userId);
     }
 
-    @GetMapping("/exist/email/{email}")
-    public DuplicateDTO isDuplicatedEmail(@PathVariable String email) {
-        return getDuplicateDTO(email);
+    @GetMapping("/email")
+    public DuplicateDTO isDuplicatedEmail(@RequestParam("email") String email) {
+        return getDuplicateDTO("email", email);
     }
 
-    @GetMapping("/exist/mobile/{mobile}")
-    public DuplicateDTO isDuplicatedMobile(@PathVariable String mobile) {
-        return getDuplicateDTO(mobile);
+    @GetMapping("/mobile")
+    public DuplicateDTO isDuplicatedMobile(@RequestParam("mobile") String mobile) {
+        return getDuplicateDTO("mobile", mobile);
     }
 
-    private DuplicateDTO getDuplicateDTO(String comparison) {
-        return new DuplicateDTO(200, HttpStatus.OK, isDuplicated(comparison));
+    private DuplicateDTO getDuplicateDTO(String type, String comparison) {
+        boolean isDuplicated = isDuplicated(type, comparison);
+        return new DuplicateDTO(200, HttpStatus.OK, isDuplicated);
     }
 
-    private boolean isDuplicated(String comparison) {
-        switch (comparison) {
+    private boolean isDuplicated(String type, String comparison) {
+        switch (type) {
             case("userId"):
                  return userRepository.findUserByUserId(comparison).isPresent();
             case("email"):
