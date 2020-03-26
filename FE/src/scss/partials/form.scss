@@ -39,7 +39,13 @@ form .content {
 		.message {
 			font-size: 13px;
 			margin-top: 5px;
-			visibility: hidden;
+			height: 12.8px;
+			&.pass {
+				color: $green;
+			}
+			&.fail {
+				color: $red;
+			}
 		}
 	}
 	.birthday_wrapper {
@@ -85,6 +91,7 @@ form .content {
 			color: $white;
 			font-weight: bold;
 			background: $purple;
+			border: none;
 		}
 	}
 }
