@@ -1,8 +1,10 @@
 package com.codesquad.signup.api;
 
+import com.codesquad.signup.domain.User;
 import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -16,29 +18,40 @@ public class ApiUserController {
         return "index";
     }
 
+    @GetMapping("/exist/{userId}")
+    public boolean checkUserId(@PathVariable String userId) {
+        if (!userRepository.findByUserId(userId).isPresent()) {
+            User checkedUserId = new User (userId, "empty", "empty", "empty", "empty", "empty", "empty");
+            userRepository.save(checkedUserId);
+            return true;
+        }
+        return false;
+    }
+
+    @GetMapping("/exist/{userId}/email/{email}")
+    public boolean checkEmail(@PathVariable String userId, @PathVariable String email) {
+        Optional<String> duplicateEmail = userRepository.findByEmail(email);
+        System.out.println(duplicateEmail);
+        if (!duplicateEmail.isPresent()) {
+            userRepository.updateEmail(userId, email);
+            return true;
+        }
+        return false;
+    }
+
+    @GetMapping("/exist/{userId}/mobile/{mobile}")
+    public boolean checkMobile(@PathVariable String userId, @PathVariable String mobile) {
+        Optional<String> duplicatePhone = userRepository.findByMobile(mobile);
+        if (!duplicatePhone.isPresent()) {
+            userRepository.updateMobile(userId, mobile);
+            return true;
+        }
+        return false;
+    }
+
     @PostMapping("")
     public String create() {
         return "redirect:/";
-    }
-
-    @PostMapping("/duplicateUserId")
-    public String duplicateUserId() {
-        return "redirect:/users/createForm";
-    }
-
-    @PostMapping("/duplicateMobile")
-    public String duplicateMobile() {
-        return "redirect:/users/createForm";
-    }
-
-    @PostMapping("/duplicateEmail")
-    public String duplicateEmail() {
-        return "redirect:/users/createForm";
-    }
-
-    @GetMapping("/reset")
-    public String resetForm() {
-        return null;
     }
 
     @GetMapping("/login")
