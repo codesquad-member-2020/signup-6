@@ -266,6 +266,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-E7-e2L" customClass="PreviousButton" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="100" y="492.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="PopSegue" customModule="SignUp" customModuleProvider="target" id="tjf-eM-Wne"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

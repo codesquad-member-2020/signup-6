@@ -28,6 +28,7 @@
 		44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5E242A2E61003DC815 /* SignUpView.swift */; };
 		44FA8097242CAE2C0013B1E3 /* PreviousButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */; };
 		44FA8099242CAEA10013B1E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA8098242CAEA10013B1E3 /* CustomButton.swift */; };
+		44FA809D242CB3040013B1E3 /* PopSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA809C242CB3040013B1E3 /* PopSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		44F5CA5E242A2E61003DC815 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousButton.swift; sourceTree = "<group>"; };
 		44FA8098242CAEA10013B1E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		44FA809C242CB3040013B1E3 /* PopSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,13 +129,13 @@
 		443DD5A62429AFA1004F2722 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				44FA809B242CB2E80013B1E3 /* Segues */,
 				44FA809A242CB0DA0013B1E3 /* Buttons */,
 				443DD5A42429AD2E004F2722 /* TitleLabel.swift */,
 				443DD5A72429B058004F2722 /* TextFieldLabel.swift */,
 				443DD5A92429B356004F2722 /* StatusMessageLabel.swift */,
 				443DD5AD2429CE89004F2722 /* InputTextField.swift */,
 				44F5CA5E242A2E61003DC815 /* SignUpView.swift */,
-				441FA516242CA39A005E40A9 /* PushSegue.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +183,15 @@
 				44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		44FA809B242CB2E80013B1E3 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				441FA516242CA39A005E40A9 /* PushSegue.swift */,
+				44FA809C242CB3040013B1E3 /* PopSegue.swift */,
+			);
+			path = Segues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				443DD5A52429AD2E004F2722 /* TitleLabel.swift in Sources */,
 				443DD591242999E0004F2722 /* AppDelegate.swift in Sources */,
 				44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */,
+				44FA809D242CB3040013B1E3 /* PopSegue.swift in Sources */,
 				443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */,
 				44FA8097242CAE2C0013B1E3 /* PreviousButton.swift in Sources */,
 				443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */,
