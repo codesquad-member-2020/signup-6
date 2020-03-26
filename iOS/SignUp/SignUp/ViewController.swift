@@ -64,7 +64,10 @@ extension ViewController {
     }
     
     private func bindIdViewModel() {
-        signUpView.idTextField.bind { self.idViewModel.id.value = $0 }
+        signUpView.idTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.idViewModel.id.value = $0
+        }
         idViewModel.idDidChanged = { result in
             if result {
                 self.signUpView.idValid()
@@ -76,8 +79,14 @@ extension ViewController {
     }
     
     private func bindPasswordViewModel() {
-        signUpView.passwordTextField.bind { self.passwordViewModel.password.value = $0 }
-        signUpView.passwordConfirmTextField.bind { self.passwordViewModel.passwordConfirm.value = $0 }
+        signUpView.passwordTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.passwordViewModel.password.value = $0
+        }
+        signUpView.passwordConfirmTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.passwordViewModel.passwordConfirm.value = $0
+        }
         passwordViewModel.passwordDidChanged = { result, status in
             if result {
                 self.signUpView.passwordValid()
@@ -97,7 +106,10 @@ extension ViewController {
     }
     
     private func bindNameViewModel() {
-        signUpView.nameTextField.bind { self.nameViewModel.name.value = $0 }
+        signUpView.nameTextField.bind { [weak self] in
+            guard let self = self else { return }
+            self.nameViewModel.name.value = $0
+        }
         nameViewModel.nameDidChanged = { result in
             if result {
                 self.signUpView.nameEntered()
