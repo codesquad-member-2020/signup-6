@@ -8,7 +8,7 @@ const validateId = value => {
 		return ["fail", "5~20자의 영문 소문자, 숫자와 특수기호(_)(-)만 사용 가능합니다."];
 	} else {
 		return http
-			.GET(API.DEV + value)
+			.GET(API.DEV.GET_USERID + value)
 			.then(_handleResponse)
 			.catch(_handleError);
 	}
@@ -16,7 +16,7 @@ const validateId = value => {
 
 const _handleResponse = res => {
 	const { code, exist } = res;
-	if (code === 200) {
+	if (code === "200") {
 		return exist === "true"
 			? ["fail", "이미 사용중인 아이디입니다."]
 			: ["pass", "사용 가능한 아이디 입니다."];
