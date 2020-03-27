@@ -52,6 +52,10 @@ public class User {
         this.interests = interests;
     }
 
+    public boolean matchPassword(String password) {
+        return this.password.equals(password);
+    }
+
     @Override
     public String toString() {
         return "User{" +
