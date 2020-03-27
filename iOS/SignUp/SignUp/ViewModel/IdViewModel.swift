@@ -16,13 +16,13 @@ class IdViewModel {
     var isIdValid = Dynamic<Bool>.init(false)
     var idDuplication: IdDuplicationResult? {
         didSet {
-            idDuplicationChanged(idDuplication!.exist)
+            idDuplicationChanged(idDuplication!.message)
         }
     }
     var idDuplicationChanged: ((Bool) -> Void) = { _ in }
     
     struct IdDuplicationResult: Codable {
-        var exist: Bool
+        var message: Bool
     }
     
     init() {
@@ -50,7 +50,7 @@ class IdViewModel {
             do {
                 self.idDuplication = try decoder.decode(IdDuplicationResult.self, from: data)
             } catch {
-                self.idDuplication = IdDuplicationResult(exist: false)
+                self.idDuplication = IdDuplicationResult(message: false)
             }
         }
     }
