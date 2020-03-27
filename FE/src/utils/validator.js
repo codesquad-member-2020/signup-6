@@ -2,17 +2,17 @@ import http from "../utils/http.js";
 import { API } from "../utils/const.js";
 
 const fields = {
-	id: { value: null, status: false },
-	password: { value: null, status: false },
-	password_check: { value: null, status: false },
-	name: { value: null, status: false },
-	yy: { value: null, status: false },
-	mm: { value: "월", status: false },
-	dd: { value: null, status: false },
-	gender: { value: "성별", status: false },
-	email: { value: null, status: false },
-	mobile: { value: null, status: false },
-	interest: { value: null, status: false }
+	id: { title: "아이디", value: null, status: null },
+	password: { title: "비밀번호", value: null, status: null },
+	password_check: { title: "비밀번호 재확인", value: null, status: null },
+	name: { title: "이름", value: null, status: null },
+	yy: { title: "생년월일", value: null, status: null },
+	mm: { title: "생년월일", value: null, status: null },
+	dd: { title: "생년월일", value: null, status: null },
+	gender: { title: "성별", value: null, status: null },
+	email: { title: "이메일", value: null, status: null },
+	mobile: { title: "휴대전화", value: null, status: null },
+	interest: { title: "관심사", value: null, status: null }
 };
 
 // id
@@ -148,7 +148,20 @@ const validateInterest = value => {
 // form
 const validateForm = e => {
 	e.preventDefault();
-	console.log("inside form validator", fields);
+	for (const [_, state] of Object.entries(fields)) {
+		const { title, value, status } = state;
+		if (!value || !status) {
+			alert(`${title} 항목을 입력해주세요.`);
+			return;
+		}
+		if (status === "fail") {
+			alert(`${title}을 올바르게 입력해주세요.`);
+			return;
+		}
+		// 모든 항목 통과시
+		// 1. 서버에 보낼 데이터 만들기
+		// 2. 서버에 post 요청 보내기
+	}
 };
 
 export default {
