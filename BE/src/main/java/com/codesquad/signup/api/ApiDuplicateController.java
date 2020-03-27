@@ -33,7 +33,7 @@ public class ApiDuplicateController {
 
     private ResponseDTO getDuplicateDTO(String type, String comparison) {
         boolean isDuplicated = isDuplicated(type, comparison);
-        return new ResponseDTO(200, HttpStatus.OK, isDuplicated);
+        return new ResponseDTO(HttpStatus.OK, 200, isDuplicated);
     }
 
     private boolean isDuplicated(String type, String comparison) {
