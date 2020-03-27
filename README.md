@@ -4,6 +4,9 @@
 * BE: Poogle, Ever
 * iOS: 또치
 
+### iOS demo
+https://github.com/codesquad-memeber-2020/signup-6/blob/dev/iOS/demo.gif
+
 # Ground Rule
 ## Scrum
 * 오전 10시 (행 아웃)
