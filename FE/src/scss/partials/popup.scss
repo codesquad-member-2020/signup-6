@@ -50,6 +50,9 @@
 			color: $white;
 			font-weight: bold;
 			background: $grey;
+			&.active {
+				background: $purple;
+			}
 		}
 	}
 }
