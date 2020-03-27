@@ -30,8 +30,8 @@ const validateId = value => {
 
 const _handleResponse = res => {
 	const { code, exist } = res;
-	if (code === "200") {
-		return exist === "true"
+	if (code === 200) {
+		return exist === true
 			? [false, "이미 사용중인 아이디입니다."]
 			: [true, "사용 가능한 아이디 입니다."];
 	}
