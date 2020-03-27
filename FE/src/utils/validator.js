@@ -1,19 +1,6 @@
 import http from "../utils/http.js";
 import { API } from "../utils/const.js";
-
-const fields = {
-	id: { title: "아이디", value: null, status: null },
-	password: { title: "비밀번호", value: null, status: null },
-	password_check: { title: "비밀번호 재확인", value: null, status: null },
-	name: { title: "이름", value: null, status: null },
-	yy: { title: "생년월일", value: null, status: null },
-	mm: { title: "생년월일", value: null, status: null },
-	dd: { title: "생년월일", value: null, status: null },
-	gender: { title: "성별", value: null, status: null },
-	email: { title: "이메일", value: null, status: null },
-	mobile: { title: "휴대전화", value: null, status: null },
-	interest: { title: "관심사", value: null, status: null }
-};
+import { fields } from "../utils/const.js";
 
 // id
 const validateId = value => {
@@ -146,10 +133,14 @@ const validateInterest = value => {
 // form
 const validateForm = e => {
 	e.preventDefault();
-	for (const [_, state] of Object.entries(fields)) {
+	console.log(fields);
+	for (const [field, state] of Object.entries(fields)) {
 		const { title, value, status } = state;
 		if (!value || status === null) {
-			alert(`${title} 항목을 입력해주세요.`);
+			console.log(field);
+			field !== "terms"
+				? alert(`${title} 항목을 입력해주세요.`)
+				: alert(`${title}에 동의해주세요.`);
 			return;
 		}
 		if (status === false) {
@@ -190,6 +181,5 @@ export default {
 	validateEmail,
 	validatePhoneNumber,
 	validateInterest,
-	validateForm,
-	fields
+	validateForm
 };
