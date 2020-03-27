@@ -133,10 +133,14 @@ const validateInterest = value => {
 // form
 const validateForm = e => {
 	e.preventDefault();
-	for (const [_, state] of Object.entries(fields)) {
+	console.log(fields);
+	for (const [field, state] of Object.entries(fields)) {
 		const { title, value, status } = state;
 		if (!value || status === null) {
-			alert(`${title} 항목을 입력해주세요.`);
+			console.log(field);
+			field !== "terms"
+				? alert(`${title} 항목을 입력해주세요.`)
+				: alert(`${title}에 동의해주세요.`);
 			return;
 		}
 		if (status === false) {

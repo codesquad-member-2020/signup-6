@@ -1,4 +1,4 @@
-import { TERMS } from "../utils/const.js";
+import { fields, TERMS } from "../utils/const.js";
 import { modalPopup } from "../utils/template.js";
 
 let modal = document.querySelector(".modal");
@@ -74,6 +74,8 @@ const check = () => {
 	agreementButton.classList.add("clicked");
 	agreementButton.textContent = "동의 완료";
 	agreementButton.removeEventListener("click", check);
+	fields.terms.value = true;
+	fields.terms.status = true;
 };
 
 const resetScrollToTheTop = () => {
