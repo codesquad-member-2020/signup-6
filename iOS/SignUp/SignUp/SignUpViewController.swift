@@ -83,6 +83,7 @@ extension SignUpViewController {
                 } else {
                     self.signUpView.idDuplicate()
                 }
+                self.checkCondition()
             }
         }
     }
@@ -132,6 +133,7 @@ extension SignUpViewController {
     private func checkCondition() {
         signUpView.disableNextButton()
         guard idViewModel.isIdValid.value! else { return }
+        guard idViewModel.idDuplication?.exist ?? false else { return }
         guard passwordViewModel.isPasswordValid.value! else { return }
         guard passwordViewModel.isPasswordConfirmed.value! else { return }
         guard nameViewModel.isNameValid.value! else {
