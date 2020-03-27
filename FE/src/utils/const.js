@@ -7,6 +7,21 @@ export const API = Object.freeze({
 	DEPLOY: null
 });
 
+export const fields = {
+	id: { title: "아이디", value: null, status: null },
+	password: { title: "비밀번호", value: null, status: null },
+	password_check: { title: "비밀번호 재확인", value: null, status: null },
+	name: { title: "이름", value: null, status: null },
+	yy: { title: "생년월일", value: null, status: null },
+	mm: { title: "생년월일", value: null, status: null },
+	dd: { title: "생년월일", value: null, status: null },
+	gender: { title: "성별", value: null, status: null },
+	email: { title: "이메일", value: null, status: null },
+	mobile: { title: "휴대전화", value: null, status: null },
+	interest: { title: "관심사", value: null, status: null },
+	terms: { title: "약관", value: null, status: null }
+};
+
 export const TERMS = {
 	title: "개인정보 수집 및 이용에 대한 안내",
 	content:

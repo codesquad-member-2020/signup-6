@@ -1,4 +1,5 @@
 import _ from "../utils/validator.js";
+import { fields } from "../utils/const.js";
 
 let timer;
 
@@ -12,9 +13,8 @@ export const setMessage = (target, validator) => {
 		const messageElement = target.closest(".input_container").lastElementChild;
 		_changeMessageColor(messageElement, status);
 		messageElement.textContent = message;
-		_.fields[id].value = value;
-		_.fields[id].status = status;
-		console.log(id, "updated", _.fields);
+		fields[id].value = value;
+		fields[id].status = status;
 	}, 200);
 };
 
