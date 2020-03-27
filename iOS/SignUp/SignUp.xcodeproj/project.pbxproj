@@ -28,7 +28,7 @@
 		44846C91242BBF1300521C8D /* NameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C90242BBF1300521C8D /* NameViewModel.swift */; };
 		44F5CA5F242A2E61003DC815 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5CA5E242A2E61003DC815 /* SignUpView.swift */; };
 		44FA8097242CAE2C0013B1E3 /* PreviousButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */; };
-		44FA8099242CAEA10013B1E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA8098242CAEA10013B1E3 /* CustomButton.swift */; };
+		44FA8099242CAEA10013B1E3 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA8098242CAEA10013B1E3 /* CommonButton.swift */; };
 		44FA809D242CB3040013B1E3 /* PopSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA809C242CB3040013B1E3 /* PopSegue.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,7 @@
 		44A51C8B242B3320005C35BC /* SignUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignUp.entitlements; sourceTree = "<group>"; };
 		44F5CA5E242A2E61003DC815 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousButton.swift; sourceTree = "<group>"; };
-		44FA8098242CAEA10013B1E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		44FA8098242CAEA10013B1E3 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		44FA809C242CB3040013B1E3 /* PopSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,7 +181,7 @@
 		44FA809A242CB0DA0013B1E3 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				44FA8098242CAEA10013B1E3 /* CustomButton.swift */,
+				44FA8098242CAEA10013B1E3 /* CommonButton.swift */,
 				443DD5AF2429D6D1004F2722 /* NextButton.swift */,
 				44FA8096242CAE2C0013B1E3 /* PreviousButton.swift */,
 			);
@@ -313,7 +313,7 @@
 				44846C8A242BA64600521C8D /* Dynamic.swift in Sources */,
 				44846C88242B9F2800521C8D /* IdViewModel.swift in Sources */,
 				44846C91242BBF1300521C8D /* NameViewModel.swift in Sources */,
-				44FA8099242CAEA10013B1E3 /* CustomButton.swift in Sources */,
+				44FA8099242CAEA10013B1E3 /* CommonButton.swift in Sources */,
 				441FA517242CA39A005E40A9 /* PushSegue.swift in Sources */,
 				44846C8D242BAA1200521C8D /* StringExtension.swift in Sources */,
 				443DD593242999E0004F2722 /* SceneDelegate.swift in Sources */,

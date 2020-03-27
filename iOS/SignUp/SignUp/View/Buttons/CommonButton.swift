@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomButton: UIButton {
+class CommonButton: UIButton {
     private var textSize: CGFloat = 18.0
     private var activeColor = UIColor(red: 0.019, green: 0.652, blue: 0.0, alpha: 1)
     private var borderWidth: CGFloat = 0.8
