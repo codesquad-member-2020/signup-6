@@ -3,10 +3,12 @@ import { modalPopup } from "../utils/template.js";
 
 let modal = document.querySelector(".modal");
 let contentArea;
+let agreementButton;
 
 export const openModal = () => {
 	if (modal) {
 		modal.classList.remove("close");
+		contentArea.addEventListener("scroll", handleButtonActivation, { passive: true });
 	} else {
 		renderModal();
 		modal = document.querySelector(".modal");
@@ -27,20 +29,22 @@ const bindEventListener = () => {
 
 	// activate agreement button when user scroll down to the bottom
 	contentArea = document.querySelector(".modal_content");
-	contentArea.addEventListener("scroll", handleButtonActivation);
+	contentArea.addEventListener("scroll", handleButtonActivation, { passive: true });
 };
 
 const closeByClickingButton = () => {
 	resetScrollToTheTop();
-	modal.classList.add("close");
 	deactivateButton();
+	modal.classList.add("close");
+	contentArea.removeEventListener("scroll", handleButtonActivation, { passive: true });
 };
 
 const closeByClickingOutside = e => {
 	if (e.target === modal) {
 		resetScrollToTheTop();
-		modal.classList.add("close");
 		deactivateButton();
+		modal.classList.add("close");
+		contentArea.removeEventListener("scroll", handleButtonActivation, { passive: true });
 	}
 };
 
@@ -51,15 +55,13 @@ const handleButtonActivation = e => {
 };
 
 const activateButton = () => {
-	// console.log("button activated");
-	const agreementButton = modal.querySelector("button");
+	agreementButton = modal.querySelector("button");
 	agreementButton.classList.add("active");
 	agreementButton.addEventListener("click", check);
 };
 
 const deactivateButton = () => {
-	// console.log("button deactivated");
-	const agreementButton = modal.querySelector("button");
+	agreementButton = modal.querySelector("button");
 	agreementButton.classList.remove("active");
 	agreementButton.removeEventListener("click", check);
 };
@@ -68,6 +70,7 @@ const check = () => {
 	const checkbox = document.getElementById("terms");
 	checkbox.setAttribute("checked", true);
 	modal.classList.add("close");
+	contentArea.removeEventListener("scroll", handleButtonActivation, { passive: true });
 };
 
 const resetScrollToTheTop = () => {
