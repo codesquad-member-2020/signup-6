@@ -40,10 +40,10 @@ form .content {
 			font-size: 13px;
 			margin-top: 5px;
 			height: 12.8px;
-			&.pass {
+			&.true {
 				color: $green;
 			}
-			&.fail {
+			&.false {
 				color: $red;
 			}
 		}

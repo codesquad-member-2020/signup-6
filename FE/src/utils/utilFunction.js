@@ -20,7 +20,7 @@ export const setMessage = (target, validator) => {
 
 const _changeMessageColor = (element, status) => {
 	if (element.classList.contains(status)) return;
-	const statusSwitchingObj = { pass: "fail", fail: "pass" };
+	const statusSwitchingObj = { true: "false", false: "true" };
 	element.classList.remove(statusSwitchingObj[status]);
 	element.classList.add(status);
 };
