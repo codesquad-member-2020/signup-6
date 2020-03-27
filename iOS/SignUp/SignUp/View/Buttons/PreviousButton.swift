@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreviousButton: CustomButton {
+class PreviousButton: CommonButton {
     private var buttonTitle = "이전"
     private var buttonImage = UIImage(systemName: "chevron.left.circle.fill")
 
