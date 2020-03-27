@@ -1,6 +1,6 @@
 package com.codesquad.signup.api;
 
-import com.codesquad.signup.domain.DuplicateDTO;
+import com.codesquad.signup.domain.DuplicateResponseDTO;
 import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,23 +17,23 @@ public class ApiDuplicateController {
     private UserRepository userRepository;
 
     @GetMapping("/userId")
-    public DuplicateDTO isDuplicatedUserId(@RequestParam("userId") String userId) {
+    public DuplicateResponseDTO isDuplicatedUserId(@RequestParam("userId") String userId) {
         return getDuplicateDTO("userId", userId);
     }
 
     @GetMapping("/email")
-    public DuplicateDTO isDuplicatedEmail(@RequestParam("email") String email) {
+    public DuplicateResponseDTO isDuplicatedEmail(@RequestParam("email") String email) {
         return getDuplicateDTO("email", email);
     }
 
     @GetMapping("/mobile")
-    public DuplicateDTO isDuplicatedMobile(@RequestParam("mobile") String mobile) {
+    public DuplicateResponseDTO isDuplicatedMobile(@RequestParam("mobile") String mobile) {
         return getDuplicateDTO("mobile", mobile);
     }
 
-    private DuplicateDTO getDuplicateDTO(String type, String comparison) {
+    private DuplicateResponseDTO getDuplicateDTO(String type, String comparison) {
         boolean isDuplicated = isDuplicated(type, comparison);
-        return new DuplicateDTO(200, HttpStatus.OK, isDuplicated);
+        return new DuplicateResponseDTO(200, HttpStatus.OK, isDuplicated);
     }
 
     private boolean isDuplicated(String type, String comparison) {

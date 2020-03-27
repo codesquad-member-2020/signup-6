@@ -53,7 +53,10 @@ public class User {
     }
 
     public boolean matchPassword(String password) {
-        return this.password.equals(password);
+        if(!this.password.equals(password)) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 
     @Override
