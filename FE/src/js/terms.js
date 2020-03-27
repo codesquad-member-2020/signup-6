@@ -71,6 +71,9 @@ const check = () => {
 	checkbox.setAttribute("checked", true);
 	modal.classList.add("close");
 	contentArea.removeEventListener("scroll", handleButtonActivation, { passive: true });
+	agreementButton.classList.add("clicked");
+	agreementButton.textContent = "동의 완료";
+	agreementButton.removeEventListener("click", check);
 };
 
 const resetScrollToTheTop = () => {
