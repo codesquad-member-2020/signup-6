@@ -31,6 +31,12 @@ class SignUpView: UIView {
         idTextField.layer.borderColor = UIColor.red.cgColor
     }
     
+    func idDuplicate() {
+        idStatusLabel.isValid = false
+        idStatusLabel.text = "이미 사용중인 아이디입니다."
+        idTextField.layer.borderColor = UIColor.red.cgColor
+    }
+    
     func passwordValid() {
         passwordStatusLabel.isValid = true
         passwordStatusLabel.text = "안전한 비밀번호입니다."
