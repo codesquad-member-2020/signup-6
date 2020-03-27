@@ -10,10 +10,21 @@ import Foundation
 
 class IdViewModel {
     static let shared = IdViewModel()
+    private let networkManager = NetworkManager()
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     var id = Dynamic<String>.init("")
     var idDidChanged: ((Bool) -> Void) = { _ in }
     var isIdValid = Dynamic<Bool>.init(false)
+    var idDuplication: IdDuplicationResult? {
+        didSet {
+            idDuplicationChanged(idDuplication!.exist)
+        }
+    }
+    var idDuplicationChanged: ((Bool) -> Void) = { _ in }
+    
+    struct IdDuplicationResult: Codable {
+        var exist: Bool
+    }
     
     init() {
         id.boundClosure = { text in
@@ -21,10 +32,27 @@ class IdViewModel {
         }
         isIdValid.boundClosure = { result in
             self.idDidChanged(result)
+            if result {
+                self.confirmIdDuplication(id: self.id.value!)
+            }
         }
     }
     
     private func verifyIdInput(id: String) -> Bool {
         return !id.match(with: idRegExr).isEmpty
+    }
+    
+    private func confirmIdDuplication(id: String) {
+        let urlString = networkManager.idConfirmUrl + id
+        guard let url = URL(string: urlString) else { return }
+        networkManager.getRequest(url: url) { (data, response, error) in
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                self.idDuplication = try decoder.decode(IdDuplicationResult.self, from: data)
+            } catch {
+                self.idDuplication = IdDuplicationResult(exist: false)
+            }
+        }
     }
 }
