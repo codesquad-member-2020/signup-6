@@ -1,5 +1,5 @@
 import _ from "../utils/validator.js";
-import { setMessage } from "../utils/utilFunction.js";
+import { setMessage, renderModal } from "../utils/utilFunction.js";
 
 document.getElementById("id").addEventListener("input", e => setMessage(e.target, _.validateId));
 
@@ -42,5 +42,7 @@ document
 document
 	.getElementById("interest")
 	.addEventListener("focusout", e => setMessage(e.target, _.validateInterest));
+
+document.querySelector(".terms_text").addEventListener("click", renderModal);
 
 document.getElementById("signup_form").addEventListener("submit", _.validateForm);

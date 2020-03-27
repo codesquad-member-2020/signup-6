@@ -1,5 +1,4 @@
 .modal {
-	display: none;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -47,7 +46,7 @@
 			cursor: pointer;
 			color: $white;
 			font-weight: bold;
-			background: $purple;
+			background: $grey;
 		}
 	}
 }
