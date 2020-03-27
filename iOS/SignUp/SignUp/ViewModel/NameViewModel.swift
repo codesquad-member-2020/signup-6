@@ -9,7 +9,6 @@
 import Foundation
 
 class NameViewModel {
-    static let shared = NameViewModel()
     var name = Dynamic<String>.init("")
     var nameDidChanged: ((Bool) -> Void) = { _ in }
     var isNameValid = Dynamic<Bool>.init(false)

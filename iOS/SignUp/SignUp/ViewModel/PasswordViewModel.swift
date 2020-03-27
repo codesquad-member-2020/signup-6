@@ -9,7 +9,6 @@
 import Foundation
 
 class PasswordViewModel {
-    static let shared = PasswordViewModel()
     enum EssentialElement: String {
         case upperCase = "영문 대문자"
         case lowerCase = "영문 소문자"

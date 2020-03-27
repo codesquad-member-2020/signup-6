@@ -9,7 +9,6 @@
 import Foundation
 
 class IdViewModel {
-    static let shared = IdViewModel()
     private let networkManager = NetworkManager()
     private let idRegExr = "^[a-z0-9_-]{5,20}$"
     var id = Dynamic<String>.init("")
