@@ -1,1 +1,0 @@
-![영상](https://github.com/codesquad-memeber-2020/signup-6/blob/dev/demo.gif)
