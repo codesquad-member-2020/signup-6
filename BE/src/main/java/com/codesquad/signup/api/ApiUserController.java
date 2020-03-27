@@ -27,18 +27,14 @@ public class ApiUserController {
 
     @GetMapping("")
     public String createForm() {
-        return "/main.html";
+        return "/index";
     }
 
     @PostMapping("")
     public String create(@RequestBody User user) {
+        logger.info("{}", user);
         userRepository.save(user);
         return "redirect:/";
-    }
-
-    @PostMapping("/m")
-    public User createM(@RequestBody User user) {
-        return userRepository.save(user);
     }
 
     @GetMapping("/{id}")

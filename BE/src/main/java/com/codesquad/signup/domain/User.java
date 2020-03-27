@@ -23,13 +23,13 @@ public class User {
     private String password;
 
     @NotEmpty
-    private String userName;
+    private String name;
 
     @NotEmpty
-    private String birthDate;
+    private String birthDay;
 
     @NotEmpty
-    private String sex;
+    private String gender;
 
     @NotEmpty
     private String email;
@@ -38,22 +38,22 @@ public class User {
     private String mobile;
 
     @NotEmpty
-    private String interests;
+    private String interest;
 
-    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String userName, @NotEmpty String birthDate, @NotEmpty String sex, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interests) {
+    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String name, @NotEmpty String birthDay, @NotEmpty String gender, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interest) {
         this.id = id;
         this.userId = userId;
         this.password = password;
-        this.userName = userName;
-        this.birthDate = birthDate;
-        this.sex = sex;
+        this.name = name;
+        this.birthDay = birthDay;
+        this.gender = gender;
         this.email = email;
         this.mobile = mobile;
-        this.interests = interests;
+        this.interest = interest;
     }
 
     public boolean matchPassword(String password) {
-        if(!this.password.equals(password)) {
+        if (!this.password.equals(password)) {
             throw new IllegalArgumentException();
         }
         return true;
@@ -65,12 +65,12 @@ public class User {
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
-                ", userName='" + userName + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                ", sex='" + sex + '\'' +
+                ", name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
-                ", interests='" + interests + '\'' +
+                ", interest='" + interest + '\'' +
                 '}';
     }
 }
