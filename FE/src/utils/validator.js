@@ -156,10 +156,26 @@ const validateForm = e => {
 			alert(`${title}을 올바르게 입력해주세요.`);
 			return;
 		}
-		// 모든 항목 통과시
-		// 1. 서버에 보낼 데이터 만들기
-		// 2. 서버에 post 요청 보내기
 	}
+	_postData();
+};
+
+const _postData = () => {
+	http.POST(API.DEV.POST_USERDATA, _formatData()).then(res => console.log(res));
+};
+
+const _formatData = () => {
+	const data = {};
+	const { id, password, name, yy, mm, dd, gender, email, mobile, interest } = fields;
+	data.userId = id.value;
+	data.password = password.value;
+	data.userName = name.value;
+	data.birthDate = `${yy.value}-${mm.value}-${dd.value}`;
+	data.sex = gender.value;
+	data.email = email.value;
+	data.mobile = mobile.value;
+	data.interests = interest.value;
+	return data;
 };
 
 export default {
