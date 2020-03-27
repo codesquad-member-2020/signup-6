@@ -1,5 +1,6 @@
 import _ from "../utils/validator.js";
-import { setMessage, renderModal } from "../utils/utilFunction.js";
+import { setMessage } from "./message.js";
+import { renderModal } from "./terms";
 
 document.getElementById("id").addEventListener("input", e => setMessage(e.target, _.validateId));
 

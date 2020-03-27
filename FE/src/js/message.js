@@ -1,6 +1,4 @@
-import _ from "./validator.js";
-import { TERMS } from "./const.js";
-import { modalPopup } from "./template.js";
+import _ from "../utils/validator.js";
 
 let timer;
 
@@ -25,9 +23,4 @@ const _changeMessageColor = (element, status) => {
 	const statusSwitchingObj = { true: "false", false: "true" };
 	element.classList.remove(statusSwitchingObj[status]);
 	element.classList.add(status);
-};
-
-export const renderModal = () => {
-	const termsModalPopup = modalPopup`${TERMS}`;
-	document.body.insertAdjacentHTML("beforeend", termsModalPopup);
 };
