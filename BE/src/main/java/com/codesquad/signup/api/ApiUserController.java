@@ -43,7 +43,7 @@ public class ApiUserController {
 
     @GetMapping("/{id}")
     public ResponseDTO read(@PathVariable BigInteger id) {
-        User user = userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        Object user = userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         return new ResponseDTO(HttpStatus.OK, 200, user);
     }
 }

@@ -9,19 +9,7 @@ public class ResponseDTO {
     private int code;
     private Object message;
 
-    public ResponseDTO(HttpStatus status, int code, boolean message) {
-        this.status = status;
-        this.code = code;
-        this.message = message;
-    }
-
-    public ResponseDTO(HttpStatus status, int code, String message) {
-        this.status = status;
-        this.code = code;
-        this.message = message;
-    }
-
-    public ResponseDTO(HttpStatus status, int code, User message) {
+    public ResponseDTO(HttpStatus status, int code, Object message) {
         this.status = status;
         this.code = code;
         this.message = message;
