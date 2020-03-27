@@ -1,11 +1,15 @@
 package com.codesquad.signup.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.NotEmpty;
 import java.math.BigInteger;
 
+@Getter
+@Setter
 @Table("USERS")
 public class User {
 
@@ -33,37 +37,11 @@ public class User {
     @NotEmpty
     private String mobile;
 
-    public BigInteger getId() {
-        return id;
-    }
+    @NotEmpty
+    private String interests;
 
-    public void setId(BigInteger id) {
+    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String name, @NotEmpty String birthDay, @NotEmpty String gender, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interests) {
         this.id = id;
-    }
-
-    public java.lang.String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public User(@NotEmpty String userId
-            , @NotEmpty String password
-            , @NotEmpty String name
-            , @NotEmpty String birthDay
-            , @NotEmpty String gender
-            , @NotEmpty String email
-            , @NotEmpty String mobile) {
         this.userId = userId;
         this.password = password;
         this.name = name;
@@ -71,14 +49,23 @@ public class User {
         this.gender = gender;
         this.email = email;
         this.mobile = mobile;
+        this.interests = interests;
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "User{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", interests='" + interests + '\'' +
                 '}';
     }
+
+
 }

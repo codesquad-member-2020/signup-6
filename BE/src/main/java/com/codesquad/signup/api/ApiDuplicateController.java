@@ -5,7 +5,6 @@ import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,11 +38,11 @@ public class ApiDuplicateController {
 
     private boolean isDuplicated(String type, String comparison) {
         switch (type) {
-            case("userId"):
-                 return userRepository.findUserByUserId(comparison).isPresent();
-            case("email"):
+            case ("userId"):
+                return userRepository.findUserByUserId(comparison).isPresent();
+            case ("email"):
                 return userRepository.findUserByEmail(comparison).isPresent();
-            case("mobile"):
+            case ("mobile"):
                 return userRepository.findUserByMobile(comparison).isPresent();
         }
         return false;
