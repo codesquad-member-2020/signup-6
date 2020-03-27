@@ -85,6 +85,15 @@ extension SignUpViewController {
             }
             self.checkCondition()
         }
+        idViewModel.idDuplicationChanged = { result in
+            DispatchQueue.main.async {
+                if result {
+                    self.signUpView.idValid()
+                } else {
+                    self.signUpView.idDuplicate()
+                }
+            }
+        }
     }
     
     private func bindPasswordViewModel() {
