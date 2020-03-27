@@ -19,6 +19,7 @@
 		443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5A92429B356004F2722 /* StatusMessageLabel.swift */; };
 		443DD5AE2429CE89004F2722 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD2429CE89004F2722 /* InputTextField.swift */; };
 		443DD5B02429D6D1004F2722 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AF2429D6D1004F2722 /* NextButton.swift */; };
+		444F82A8242D93BD00CDEAE3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F82A7242D93BD00CDEAE3 /* NetworkManager.swift */; };
 		4473D9812429FCF000073E28 /* InputVerifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473D9802429FCF000073E28 /* InputVerifierTests.swift */; };
 		44846C88242B9F2800521C8D /* IdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C87242B9F2800521C8D /* IdViewModel.swift */; };
 		44846C8A242BA64600521C8D /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44846C89242BA64600521C8D /* Dynamic.swift */; };
@@ -56,6 +57,7 @@
 		443DD5A92429B356004F2722 /* StatusMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMessageLabel.swift; sourceTree = "<group>"; };
 		443DD5AD2429CE89004F2722 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		443DD5AF2429D6D1004F2722 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		444F82A7242D93BD00CDEAE3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = SignUp/ViewModel/NetworkManager.swift; sourceTree = SOURCE_ROOT; };
 		4473D97E2429FCF000073E28 /* InputVerifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InputVerifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4473D9802429FCF000073E28 /* InputVerifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputVerifierTests.swift; sourceTree = "<group>"; };
 		4473D9822429FCF000073E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		44F5CA5B242A2D80003DC815 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				444F82A7242D93BD00CDEAE3 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444F82A8242D93BD00CDEAE3 /* NetworkManager.swift in Sources */,
 				443DD5AA2429B356004F2722 /* StatusMessageLabel.swift in Sources */,
 				44846C8F242BB16E00521C8D /* PasswordViewModel.swift in Sources */,
 				443DD595242999E0004F2722 /* SignUpViewController.swift in Sources */,
