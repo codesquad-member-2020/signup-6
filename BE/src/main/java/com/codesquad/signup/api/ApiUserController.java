@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.math.BigInteger;
 
 @RestController
@@ -24,7 +25,7 @@ public class ApiUserController {
     private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
     @GetMapping("")
-    public String form() {
+    public String createForm() {
         return "/main.html";
     }
 
@@ -34,8 +35,15 @@ public class ApiUserController {
         return "redirect:/";
     }
 
+    @PostMapping("/m")
+    public User createM(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
     @GetMapping("/{id}")
     public User read(@PathVariable BigInteger id) {
         return userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
+
+
 }
