@@ -10,8 +10,13 @@ const input = inputBox.querySelector("input");
 const tags = [];
 
 export const handleTagButton = e => {
+	const value = e.target.value;
 	if (e.key === ",") {
-		const tagName = input.value.slice(0, -1);
+		if (value.length === 1) {
+			input.value = "";
+			return;
+		}
+		const tagName = value.slice(0, -1);
 		tags.push(tagName);
 		addTag(tagName);
 		setMessageOfInterest();
