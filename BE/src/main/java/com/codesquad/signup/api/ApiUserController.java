@@ -25,14 +25,8 @@ public class ApiUserController {
 
     private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
-    @GetMapping("")
-    public String createForm() {
-        return "/index";
-    }
-
     @PostMapping("")
     public String create(@RequestBody User user) {
-        logger.info("{}", user);
         userRepository.save(user);
         return "redirect:/";
     }

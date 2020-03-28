@@ -1,9 +1,13 @@
 package com.codesquad.signup.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @Getter
+@Setter
+@NoArgsConstructor
 public class ResponseDTO {
     private HttpStatus status;
     private int code;
