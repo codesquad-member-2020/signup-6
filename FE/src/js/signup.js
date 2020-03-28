@@ -1,5 +1,5 @@
-import _ from "../utils/validator.js";
-import { setMessage } from "./message.js";
+import _ from "../utils/validator";
+import { setMessage } from "./message";
 import { openModal } from "./terms";
 import { resetForm } from "./reset";
 

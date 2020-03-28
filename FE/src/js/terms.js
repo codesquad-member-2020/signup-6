@@ -1,5 +1,5 @@
-import { fields, TERMS } from "../utils/const.js";
-import { modalPopup } from "../utils/template.js";
+import { fields, TERMS } from "../utils/const";
+import { modalPopup } from "../utils/template";
 
 let modal = document.querySelector(".modal");
 let contentArea;
