@@ -5,3 +5,7 @@ export function modalPopup(_, data) {
 	const button = `<button>${buttonName}</button>`;
 	return `<div class="modal"><div class="modal_container">${modalHeader}${modalContent}${button}</div></div>`;
 }
+
+export function tag(_, data) {
+	return `<div class="tag"><span>${data}</span><span class="tag_closeBtn">&times;</span></div>`;
+}
