@@ -44,10 +44,6 @@ document
 
 document.getElementById("interest").addEventListener("keyup", handleTagButton);
 
-document
-	.getElementById("interest")
-	.addEventListener("focusout", e => setMessage(e.target, _.validateInterest));
-
 document.querySelector(".terms_text").addEventListener("click", openModal);
 
 document.getElementById("reset").addEventListener("click", resetForm);
