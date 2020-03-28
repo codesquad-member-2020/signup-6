@@ -124,11 +124,8 @@ const validatePhoneNumber = value => {
 };
 
 // interest
-const validateInterest = value => {
-	if (!value) return [false, ""];
-	const interestList = value.split(", ");
-	return interestList.length < 3 ? [false, "3개 이상의 관심사를 입력해주세요."] : [true, ""];
-};
+const validateInterest = tags =>
+	tags.length < 3 ? [false, "3개 이상의 관심사를 입력해주세요."] : [true, ""];
 
 // form
 const validateForm = e => {

@@ -1,5 +1,6 @@
 import _ from "../utils/validator";
 import { setMessage } from "./message";
+import { handleTagButton } from "./interest";
 import { openModal } from "./terms";
 import { resetForm } from "./reset";
 
@@ -41,9 +42,7 @@ document
 	.getElementById("mobile")
 	.addEventListener("focusout", e => setMessage(e.target, _.validatePhoneNumber));
 
-document
-	.getElementById("interest")
-	.addEventListener("focusout", e => setMessage(e.target, _.validateInterest));
+document.getElementById("interest").addEventListener("keyup", handleTagButton);
 
 document.querySelector(".terms_text").addEventListener("click", openModal);
 
