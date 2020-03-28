@@ -1,0 +1,62 @@
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	overflow: auto;
+	z-index: 10;
+	&.close {
+		display: none;
+	}
+	.modal_container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		background: $white;
+		margin: 150px auto;
+		padding: 20px;
+		width: 460px;
+		height: 50%;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.15);
+		.modal_header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+		.closeBtn {
+			color: $grey;
+			float: right;
+			font-size: 40px;
+			cursor: pointer;
+		}
+		.modal_content {
+			width: 100%;
+			height: 65%;
+			padding-top: 10px;
+			border: 1px solid $lightgrey;
+			overflow-y: scroll;
+		}
+		button {
+			width: 180px;
+			height: 40px;
+			border: none;
+			background: $lightgrey;
+			margin-top: 10px;
+			cursor: pointer;
+			color: $white;
+			font-weight: bold;
+			background: $grey;
+			&.active {
+				background: $purple;
+			}
+			&.clicked {
+				background: $grey;
+				cursor: default;
+			}
+		}
+	}
+}

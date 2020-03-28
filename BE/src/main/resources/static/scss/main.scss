@@ -1,0 +1,27 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+header {
+	color: $black;
+	width: 100%;
+	padding: 45px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+}
+
+main {
+	width: 100%;
+	min-width: 50vw;
+	padding-bottom: 45px;
+	margin: 0 auto;
+}
