@@ -7,5 +7,5 @@ export function modalPopup(_, data) {
 }
 
 export function tag(_, data) {
-	return `<div class="tag"><span>${data}</span><span class="tag_closeBtn">&times;</span></div>`;
+	return `<div class="tag"><span>${data}</span><span class="tag_closeBtn" data-tag="${data}">&times;</span></div>`;
 }

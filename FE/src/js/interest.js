@@ -7,7 +7,7 @@ const inputBox = document.querySelector(".interest");
 const tagBox = inputBox.querySelector(".tag_box");
 const input = inputBox.querySelector("input");
 
-const tags = [];
+let tags = [];
 
 export const handleTagButton = e => {
 	const value = e.target.value;
@@ -27,6 +27,16 @@ export const handleTagButton = e => {
 const addTag = tagName => {
 	const tagButton = tag`${tagName}`;
 	tagBox.insertAdjacentHTML("beforeend", tagButton);
+	tagBox.addEventListener("click", removeTag);
+};
+
+const removeTag = e => {
+	const selectedTag = e.target.getAttribute("data-tag");
+	if (selectedTag) {
+		tags = tags.filter(tag => tag !== selectedTag);
+		const selectedTagElement = e.target.closest(".tag");
+		selectedTagElement.parentNode.removeChild(selectedTagElement);
+	}
 };
 
 const setMessageOfInterest = () => {
