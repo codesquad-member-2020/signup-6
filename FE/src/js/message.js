@@ -1,5 +1,5 @@
-import _ from "../utils/validator.js";
-import { fields } from "../utils/const.js";
+import _ from "../utils/validator";
+import { fields } from "../utils/const";
 
 let timer;
 
