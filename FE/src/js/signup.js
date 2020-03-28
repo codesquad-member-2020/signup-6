@@ -1,6 +1,7 @@
 import _ from "../utils/validator.js";
 import { setMessage } from "./message.js";
 import { openModal } from "./terms";
+import { resetForm } from "./reset";
 
 document.getElementById("id").addEventListener("input", e => setMessage(e.target, _.validateId));
 
@@ -45,5 +46,7 @@ document
 	.addEventListener("focusout", e => setMessage(e.target, _.validateInterest));
 
 document.querySelector(".terms_text").addEventListener("click", openModal);
+
+document.getElementById("reset").addEventListener("click", resetForm);
 
 document.getElementById("signup_form").addEventListener("submit", _.validateForm);
