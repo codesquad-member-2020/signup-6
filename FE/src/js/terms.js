@@ -2,6 +2,7 @@ import { fields, TERMS } from "../utils/const";
 import { modalPopup } from "../utils/template";
 
 let modal = document.querySelector(".modal");
+let closeButton;
 let contentArea;
 let agreementButton;
 
@@ -11,24 +12,25 @@ export const openModal = () => {
 		contentArea.addEventListener("scroll", handleButtonActivation, { passive: true });
 	} else {
 		renderModal();
-		modal = document.querySelector(".modal");
+		bindEventListener();
 	}
 };
 
 const renderModal = () => {
 	const termsModalPopup = modalPopup`${TERMS}`;
 	document.body.insertAdjacentHTML("beforeend", termsModalPopup);
-	bindEventListener();
 };
 
 const bindEventListener = () => {
+	modal = document.querySelector(".modal");
+
 	// close modal
-	const closeButton = document.querySelector(".closeBtn");
+	closeButton = modal.querySelector(".closeBtn");
 	closeButton.addEventListener("click", closeByClickingButton);
 	window.addEventListener("click", closeByClickingOutside);
 
 	// activate agreement button when user scroll down to the bottom
-	contentArea = document.querySelector(".modal_content");
+	contentArea = modal.querySelector(".modal_content");
 	contentArea.addEventListener("scroll", handleButtonActivation, { passive: true });
 };
 
@@ -50,7 +52,8 @@ const closeByClickingOutside = e => {
 
 const handleButtonActivation = e => {
 	const isContentArea = e.target === contentArea;
-	const isBottom = contentArea.scrollHeight - contentArea.scrollTop === contentArea.clientHeight;
+	const isBottom =
+		contentArea.scrollHeight - Math.ceil(contentArea.scrollTop) === contentArea.clientHeight;
 	if (isContentArea && isBottom) activateButton();
 };
 
