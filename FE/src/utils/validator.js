@@ -130,11 +130,9 @@ const validateInterest = tags =>
 // form
 const validateForm = e => {
 	e.preventDefault();
-	console.log(fields);
 	for (const [field, state] of Object.entries(fields)) {
 		const { title, value, status } = state;
 		if (!value || status === null) {
-			console.log(field);
 			field !== "terms"
 				? alert(`${title} 항목을 입력해주세요.`)
 				: alert(`${title}에 동의해주세요.`);
@@ -149,7 +147,7 @@ const validateForm = e => {
 };
 
 const _postData = () => {
-	http.POST(API.DEV.POST_USERDATA, _formatData()).then(res => console.log(res));
+	http.POST(API.DEV.POST_USERDATA, _formatData());
 };
 
 const _formatData = () => {
