@@ -8,6 +8,11 @@ public class MainController {
 
     @GetMapping("/")
     public String main() {
-        return "redirect:/api/users/form";
+        return "redirect:/users/form";
+    }
+
+    @GetMapping("/users/form")
+    public String create() {
+        return "/index.html";
     }
 }

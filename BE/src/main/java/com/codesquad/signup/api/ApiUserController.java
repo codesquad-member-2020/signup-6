@@ -25,10 +25,7 @@ public class ApiUserController {
 
     private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
-    @GetMapping("/form")
-    public String create() {
-        return "/index.html";
-    }
+
 
     @PostMapping("")
     public User create(@RequestBody User user) {
