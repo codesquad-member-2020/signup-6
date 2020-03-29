@@ -42,7 +42,15 @@ public class User {
     @NotEmpty
     private String interests;
 
-    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String userName, @NotEmpty String birthDate, @NotEmpty String sex, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interests) {
+    public User(BigInteger id,
+                @NotEmpty String userId,
+                @NotEmpty String password,
+                @NotEmpty String userName,
+                @NotEmpty String birthDate,
+                @NotEmpty String sex,
+                @NotEmpty String email,
+                @NotEmpty String mobile,
+                @NotEmpty String interests) {
         this.id = id;
         this.userId = userId;
         this.password = password;

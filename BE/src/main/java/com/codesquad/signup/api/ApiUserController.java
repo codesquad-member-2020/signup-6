@@ -35,4 +35,9 @@ public class ApiUserController {
         Object user = userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         return new ResponseDTO(HttpStatus.OK, 200, user);
     }
+
+    @GetMapping("")
+    public Iterable<User> list() {
+        return userRepository.findAll();
+    }
 }
