@@ -4,6 +4,13 @@ export const resetForm = e => {
 };
 
 const clear = () => {
+	// clear messages
 	const messages = document.querySelectorAll(".message");
 	messages.forEach(message => (message.textContent = ""));
+
+	// clear tag buttons
+	const tagBox = document.querySelector(".tag_box");
+	while (tagBox.firstChild) {
+		tagBox.removeChild(tagBox.firstChild);
+	}
 };
