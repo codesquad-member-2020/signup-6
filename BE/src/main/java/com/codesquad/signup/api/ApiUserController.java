@@ -26,8 +26,9 @@ public class ApiUserController {
     private Logger logger = LoggerFactory.getLogger(ApiUserController.class);
 
     @PostMapping("")
-    public User create(@RequestBody User user) {
-        return userRepository.save(user);
+    public String create(@RequestBody User user) {
+        User savedUser = userRepository.save(user);
+        return String.format("redirect:/api/users/%s", savedUser.getId());
     }
 
     @GetMapping("/{id}")
