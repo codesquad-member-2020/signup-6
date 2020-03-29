@@ -11,12 +11,13 @@ let tags = [];
 
 export const handleTagButton = e => {
 	const value = e.target.value;
-	if (e.key === ",") {
+	const key = e.key;
+	if (key === "," || key === "Enter") {
 		if (value.length === 1) {
 			input.value = "";
 			return;
 		}
-		const tagName = value.slice(0, -1);
+		const tagName = key === "," ? value.slice(0, -1) : value;
 		tags.push(tagName);
 		addTag(tagName);
 		setMessageOfInterest();
