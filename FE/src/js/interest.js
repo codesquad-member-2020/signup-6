@@ -8,15 +8,25 @@ const tagBox = inputBox.querySelector(".tag_box");
 const input = inputBox.querySelector("input");
 
 let tags = [];
+let pause = true;
 
 export const handleTagButton = e => {
 	const value = e.target.value;
-	if (e.key === ",") {
-		if (value.length === 1) {
+	const key = e.key;
+	handleInsertAction(key, value);
+	handleDeleteAction(key, value);
+};
+
+const handleInsertAction = (key, value) => {
+	const isComma = key === ",";
+	const isEnter = key === "Enter";
+	if (isComma || isEnter) {
+		const withoutValue = (isComma && value.length === 1) || (isEnter && value.length === 0);
+		if (withoutValue) {
 			input.value = "";
 			return;
 		}
-		const tagName = value.slice(0, -1);
+		const tagName = isComma ? value.slice(0, -1) : value;
 		tags.push(tagName);
 		addTag(tagName);
 		setMessageOfInterest();
@@ -28,6 +38,23 @@ const addTag = tagName => {
 	const tagButton = tag`${tagName}`;
 	tagBox.insertAdjacentHTML("beforeend", tagButton);
 	tagBox.addEventListener("click", removeTag);
+};
+
+const handleDeleteAction = (key, value) => {
+	const isDeleting = key === "Backspace" || key === "Delete";
+	const isEmpty = value === "";
+	if (isDeleting && tags.length !== 0) {
+		if (isEmpty && pause) {
+			pause = false;
+			return;
+		}
+		if (isEmpty && !pause) {
+			const lastTagElement = tagBox.lastElementChild;
+			tagBox.removeChild(lastTagElement);
+			input.value = tags.pop();
+			pause = true;
+		}
+	}
 };
 
 const removeTag = e => {
