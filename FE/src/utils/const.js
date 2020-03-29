@@ -4,7 +4,10 @@ export const API = Object.freeze({
 			"https://87cda762-6dbe-4c52-a3cb-297f7f4c88dd.mock.pstmn.io/api/users/exist/userId?userId=",
 		POST_USERDATA: "https://87cda762-6dbe-4c52-a3cb-297f7f4c88dd.mock.pstmn.io/api/users"
 	},
-	DEPLOY: null
+	DEPLOY: {
+		GET_USERID: "https://codesquad-signup6.herokuapp.com/api/users/exist/userId?userId=",
+		POST_USERDATA: "https://codesquad-signup6.herokuapp.com/api/users"
+	}
 });
 
 export const fields = {

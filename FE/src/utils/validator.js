@@ -9,7 +9,7 @@ const validateId = value => {
 		return [false, "5~20자의 영문 소문자, 숫자와 특수기호(_)(-)만 사용 가능합니다."];
 	} else {
 		return http
-			.GET(API.DEV.GET_USERID + value)
+			.GET(API.DEPLOY.GET_USERID + value)
 			.then(_handleResponse)
 			.catch(_handleError);
 	}
@@ -128,7 +128,7 @@ const validateInterest = tags =>
 	tags.length < 3 ? [false, "3개 이상의 관심사를 입력해주세요."] : [true, ""];
 
 // form
-const validateForm = e => {
+const handleSubmit = e => {
 	e.preventDefault();
 	for (const [field, state] of Object.entries(fields)) {
 		const { title, value, status } = state;
@@ -143,11 +143,11 @@ const validateForm = e => {
 			return;
 		}
 	}
-	_postData();
+	_saveUser();
 };
 
-const _postData = () => {
-	http.POST(API.DEV.POST_USERDATA, _formatData());
+const _saveUser = () => {
+	http.POST(API.DEPLOY.POST_USERDATA, _formatData());
 };
 
 const _formatData = () => {
@@ -176,5 +176,5 @@ export default {
 	validateEmail,
 	validatePhoneNumber,
 	validateInterest,
-	validateForm
+	handleSubmit
 };
