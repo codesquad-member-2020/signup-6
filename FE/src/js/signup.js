@@ -48,4 +48,4 @@ document.querySelector(".terms_text").addEventListener("click", openModal);
 
 document.getElementById("reset").addEventListener("click", resetForm);
 
-document.getElementById("signup_form").addEventListener("submit", _.validateForm);
+document.getElementById("signup").addEventListener("click", _.validateForm);
