@@ -25,13 +25,13 @@ public class User {
     private String password;
 
     @NotEmpty
-    private String name;
+    private String userName;
 
     @NotEmpty
-    private String birthDay;
+    private String birthDate;
 
     @NotEmpty
-    private String gender;
+    private String sex;
 
     @NotEmpty
     private String email;
@@ -40,18 +40,18 @@ public class User {
     private String mobile;
 
     @NotEmpty
-    private String interest;
+    private String interests;
 
-    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String name, @NotEmpty String birthDay, @NotEmpty String gender, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interest) {
+    public User(BigInteger id, @NotEmpty String userId, @NotEmpty String password, @NotEmpty String userName, @NotEmpty String birthDate, @NotEmpty String sex, @NotEmpty String email, @NotEmpty String mobile, @NotEmpty String interests) {
         this.id = id;
         this.userId = userId;
         this.password = password;
-        this.name = name;
-        this.birthDay = birthDay;
-        this.gender = gender;
+        this.userName = userName;
+        this.birthDate = birthDate;
+        this.sex = sex;
         this.email = email;
         this.mobile = mobile;
-        this.interest = interest;
+        this.interests = interests;
     }
 
     public boolean matchPassword(String password) {
@@ -67,12 +67,12 @@ public class User {
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", birthDay='" + birthDay + '\'' +
-                ", gender='" + gender + '\'' +
+                ", userName='" + userName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", sex='" + sex + '\'' +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
-                ", interest='" + interest + '\'' +
+                ", interests='" + interests + '\'' +
                 '}';
     }
 }
