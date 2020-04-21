@@ -1,0 +1,1 @@
+INSERT INTO USERS VALUES (NULL, 'ever1234', 'ASD', 'KIM', '2020-03-23', '남자', 'ASD@GMAIL.COM', '01011112222', '쇼핑, 과학, 물리' );
